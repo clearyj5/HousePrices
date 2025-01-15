@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://mlg.ucd.ie/modules/python/housing/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex">  
+  <meta name="description" content="Content on this site is posted for teaching purposes only. This dataset is for &#39;$STUDENT_ID$&#39;.">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>House Sale Register</title>
+  <link rel="stylesheet" target="_blank" href="./House Sale Register_files/bootstrap.min.css">
+  <script src="./House Sale Register_files/jquery.min.js"></script>
+  <script src="./House Sale Register_files/bootstrap.min.js"></script>
+  <style>
+    .jumbotron
+    {
+
+    }
+    .jumbotron .h1, .jumbotron h1 
+    {
+      font-size: 45px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    h2
+    {
+      margin: 1em 0 1em 0;  
+    }
+    li
+    {
+      font-size: 100%;
+    }
+    div.instructions
+    {
+      border: 2px solid lightgray;
+      background-color: #F5F5F5;
+      padding: 1.5em 0em 0.8em 0em;
+      margin: 1em 0 2em 0;
+    }
+    .footer
+    {
+      color:  #666;
+      border-top: 2px solid lightgray;
+      margin-top:  1em;
+      padding-top: 0.5em;
+      margin-bottom:  1em;
+    }
+  </style>  
+</head>
+<body>
+    <div class="container mtb">
+        <div class="jumbotron">
+            <h1>House Sale Register</h1>
+        </div>
+
+        <div class="row instructions">
+            <div id="content" class="col-md-12">
+              <p>The House Sale Register contains details of house sale prices from 01 Jan 2020 to 31 Dec 2023. The following information is provided for each sale:</p>
+              <ul>
+                <li>Date on which the sale was completed</li>
+                <li>Full sale price in euros</li>
+                <li>The general location (neighbourhood) of the house</li>
+                <li>Year in which the house was built</li>
+                <li>Size of the house (square feet)</li>
+                <li>Description of the house (e.g. house type, house style, number of bedrooms, number of bathrooms)</li>
+              </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="content" class="col-md-12">
+            <table class="table table-condensed table-striped" style="width:100%;" id="prices">
+              <thead>
+                <tr>
+                  <th width="13%">Date of Sale</th>
+                  <th width="15%">Location</th>
+                  <th width="12%">Price</th>
+                  <th width="10%">Year Built</th>
+                  <th width="10%">Size</th>
+                  <th width="45%">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                		<tr><td>06 Jan, 2020</td><td>West End</td><td><span>€732,986.00</span></td><td>2010</td><td>1,696 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Jan 2020</td><td>West End</td><td><span>€985,889.00</span></td><td>2004</td><td>2,355 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Jan 20</td><td>Brookville</td><td><span>€1,047,124.00</span></td><td>2013</td><td>1,836 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Jan, 2020</td><td>Brookville</td><td><span>€516,439.00</span></td><td>2000</td><td>1,000 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>16 Jan 2020</td><td>Brookville</td><td><span>€890,423.00</span></td><td>2011</td><td>1,536 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>24 Jan 2020</td><td>Clarawood</td><td><span>€564,812.00</span></td><td>1971</td><td>1,033 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 Jan 2020</td><td>West End</td><td><span>€604,039.00</span></td><td>1965</td><td>1,086 sq ft</td><td>Type: Terraced; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 Jan 2020</td><td>West End</td><td><span>€971,535.00</span></td><td>2003</td><td>2,139 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 Jan 2020</td><td>Brookville</td><td><span>€1,161,463.00</span></td><td>2015</td><td>1,763 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Feb 2020</td><td>Brookville</td><td><span>€829,294.00</span></td><td>2012</td><td>1,774 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Feb 2020</td><td>Brookville</td><td><span>€922,807.00</span></td><td>2000</td><td>1,629</td><td>2 Bathrooms; 3 Bedrooms; Type: Detached; Style: 2-Storey</td></tr>
+		<tr><td>10 Feb 2020</td><td>Maple Ridge</td><td><span>€1,464,855.00</span></td><td>2015</td><td>1,733 sqft</td><td>2 Bedrooms; Style: 1-Storey; Type: Semi-Detached; 2 Bathrooms</td></tr>
+		<tr><td>16 Feb 2020</td><td>West End</td><td><span>€736,129.00</span></td><td>2010</td><td>1,653 sq ft</td><td>Type: Detached; Style: Two-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Feb 2020</td><td>West End</td><td><span>€1,012,190.00</span></td><td>2009</td><td>2,280</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Feb 2020</td><td>West End</td><td><span>€934,144.00</span></td><td>2018</td><td>2,082 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Feb 2020</td><td>Brookville</td><td><span>€1,012,072.00</span></td><td>2012</td><td>1,686</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Feb 2020</td><td>Clarawood</td><td><span>€674,074.00</span></td><td>1972</td><td>1,104 sqft</td><td>3 Bedrooms; Type: Detached; 1 Bathroom; Style: 1-Storey</td></tr>
+		<tr><td>27 Feb 2020</td><td>Brookville</td><td><span>€895,383.00</span></td><td>2016</td><td>1,239 sq ft</td><td>2 Bedrooms; Type: Detached; Style: 1-Storey; 2 Bathrooms</td></tr>
+		<tr><td>27 Feb 20</td><td>Brookville</td><td><span>€1,275,956.00</span></td><td>2018</td><td>1,556 sqft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>01 Mar 2020</td><td>Maple Ridge</td><td><span>€1,239,411.00</span></td><td>2015</td><td>2,105 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Mar 20</td><td>Rivermount</td><td><span>€194,342.00</span></td><td>1951</td><td>713 sq ft</td><td>Type: Bunaglow; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 Mar 2020</td><td>Rivermount</td><td><span>€436,165.00</span></td><td>1907</td><td>2,481 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Mar 2020</td><td>Clarawood</td><td><span>€622,730.00</span></td><td>1980</td><td>990 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>06 Mar 2020</td><td>Clarawood</td><td><span>€539,438.00</span></td><td>1967</td><td>1,085 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>06 Mar 2020</td><td>Clarawood</td><td><span>€599,987.00</span></td><td>1979</td><td>1,235 sq ft</td><td>Type: Detached; 1 Bathroom; Style: 1-Storey; 1 Bedroom</td></tr>
+		<tr><td>07 Mar 2020</td><td>Clarawood</td><td><span>€674,549.00</span></td><td>1974</td><td>1,248 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>07 Mar 2020</td><td>Clarawood</td><td><span>€667,990.00</span></td><td>1982</td><td>2,022</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>08 Mar 2020</td><td>Redbridge</td><td><span>€788,217.00</span></td><td>2009</td><td>1,449</td><td>Type: Semi-Detached; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Mar 2020</td><td>Brookville</td><td><span>€683,056.00</span></td><td>1987</td><td>1,426 sq ft</td><td>1 Bathroom; Type: Detached; Style: 2-Storey; 3 Bedrooms</td></tr>
+		<tr><td>09 Mar 2020</td><td>Brookville</td><td><span>€818,063.00</span></td><td>2001</td><td>1,680 sqft</td><td>Type: Detached; 2 Bathrooms; 3 Bedrooms; Style: 2-Storey</td></tr>
+		<tr><td>20 Mar, 2020</td><td>Clarawood</td><td><span>€595,181.00</span></td><td>1969</td><td>1,178</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Mar 2020</td><td>Clarawood</td><td><span>€581,208.00</span></td><td>1968</td><td>1,095</td><td>Type: Terraced; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Mar 2020</td><td>Clarawood</td><td><span>€724,821.00</span></td><td>1975</td><td>1,747</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>26 Mar 2020</td><td>Clarawood</td><td><span>€598,927.00</span></td><td>1972</td><td>1,664 sq ft</td><td>Type: Duplex; Style: 1-Storey; 5 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Mar 2020</td><td>Mile End</td><td><span>€420,149.00</span></td><td>1934</td><td>1,201 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Mar, 2020</td><td>Mile End</td><td><span>€485,132.00</span></td><td>1963</td><td>958 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Mar, 2020</td><td>Maple Ridge</td><td><span>€729,878.00</span></td><td>2013</td><td>1,435 sq ft</td><td>Style: 1-Storey; 2 Bathrooms; 2 Bedrooms; Type: Semi-Detached</td></tr>
+		<tr><td>28 Mar 2020</td><td>Maple Ridge</td><td><span>€1,238,127.00</span></td><td>2011</td><td>1,690 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Mar, 2020</td><td>Maple Ridge</td><td><span>€856,662.00</span></td><td>2018</td><td>1,272</td><td>Type: Semi-Detached; 2 Bathrooms; 2 Bedrooms; Style: 1-Storey</td></tr>
+		<tr><td>29 Mar 2020</td><td>Clarawood</td><td><span>€641,545.00</span></td><td>1965</td><td>1,537 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 Mar 20</td><td>Mile End</td><td><span>€798,523.00</span></td><td>2019</td><td>1,191 sqft</td><td>Type: Detached; 3 Bedrooms; Style: 1-Storey; 2 Bathrooms</td></tr>
+		<tr><td>30 Mar 2020</td><td>Mile End</td><td><span>€449,341.00</span></td><td>1960</td><td>860 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>31 Mar 2020</td><td>Maple Ridge</td><td><span>€1,496,532.00</span></td><td>2014</td><td>1,846 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Mar 2020</td><td>Maple Ridge</td><td><span>€1,523,841.00</span></td><td>2016</td><td>1,648</td><td>Type: Semi-D; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Mar 2020</td><td>Maple Ridge</td><td><span>€1,051,527.00</span></td><td>2015</td><td>1,397 sqft</td><td>Type: End-of-Terrace; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Apr 2020</td><td>Clarawood</td><td><span>€771,866.00</span></td><td>1974</td><td>1,184</td><td>Type: Detached; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 Apr 2020</td><td>Mile End</td><td><span>€534,927.00</span></td><td>2014</td><td>1,696 sq ft</td><td>Type: Semi-Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Apr 2020</td><td>Redbridge</td><td><span>€750,086.00</span></td><td>2015</td><td>1,282 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Apr 2020</td><td>Rivermount</td><td><span>€499,806.00</span></td><td>1895</td><td>2,271</td><td>Style: 2-Storey; 4 Bedrooms; Type: Terraced; 2 Bathrooms</td></tr>
+		<tr><td>04 Apr, 2020</td><td>Mile End</td><td><span>€466,188.00</span></td><td>1965</td><td>871 sq ft</td><td>1 Bathroom; 2 Bedrooms; Type: Detached; Style: 1-Storey</td></tr>
+		<tr><td>04 Apr 2020</td><td>Mile End</td><td><span>€739,273.00</span></td><td>2016</td><td>1,095 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Apr 2020</td><td>Redbridge</td><td><span>€851,274.00</span></td><td>2015</td><td>1,281 sq ft</td><td>Style: 1-Storey; 1 Bathroom; Type: Semi-D; 1 Bedroom</td></tr>
+		<tr><td>05 Apr 2020</td><td>Redbridge</td><td><span>€1,086,792.00</span></td><td>2019</td><td>1,466 sq ft</td><td>Type: Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>05 Apr, 2020</td><td>Rivermount</td><td><span>€567,286.00</span></td><td>1920</td><td>1,955 sq ft</td><td>Type: Terraced; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Apr 2020</td><td>Mile End</td><td><span>€534,498.00</span></td><td>2014</td><td>1,695 sq ft</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Apr, 2020</td><td>Clarawood</td><td><span>€432,409.00</span></td><td>1965</td><td>809 sq ft</td><td>Type: Detached; 2 Bedrooms; Style: 1-Storey; 1 Bathroom</td></tr>
+		<tr><td>15 Apr 2020</td><td>Rivermount</td><td><span>€721,463.00</span></td><td>1946</td><td>1,473 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Apr 2020</td><td>Mile End</td><td><span>€569,331.00</span></td><td>2014</td><td>1,726 sqft</td><td>Style: 2-Storey; 3 Bedrooms; 2 Bathrooms; Type: End-of-Terrace</td></tr>
+		<tr><td>16 Apr 2020</td><td>Mile End</td><td><span>€387,285.00</span></td><td>1957</td><td>1,451 sqft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Apr 2020</td><td>Mile End</td><td><span>€554,859.00</span></td><td>1979</td><td>1,193</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>18 Apr 2020</td><td>Clarawood</td><td><span>€465,882.00</span></td><td>1981</td><td>893 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>20 Apr, 2020</td><td>Mile End</td><td><span>€367,395.00</span></td><td>1964</td><td>1,143 sqft</td><td>3 Bedrooms; 1 Bathroom; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>22 Apr 2020</td><td>Redbridge</td><td><span>€1,022,721.00</span></td><td>2015</td><td>1,612</td><td>Type: Detached; 3 Bedrooms; Style: 1-Storey; 2 Bathrooms</td></tr>
+		<tr><td>22 Apr 2020</td><td>Redbridge</td><td><span>€698,372.00</span></td><td>2010</td><td>1,372 sq ft</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Apr 2020</td><td>Redbridge</td><td><span>€672,989.00</span></td><td>2006</td><td>1,381 sqft</td><td>2 Bathrooms; Style: 2-Storey; Type: End-of-Terrace; 3 Bedrooms</td></tr>
+		<tr><td>25 Apr 2020</td><td>Clarawood</td><td><span>€604,865.00</span></td><td>1970</td><td>1,368 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Apr 2020</td><td>Clarawood</td><td><span>€1,025,653.00</span></td><td>1983</td><td>2,146 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Apr, 2020</td><td>Mile End</td><td><span>€407,354.00</span></td><td>1961</td><td>1,227 sqft</td><td>2 Bedrooms; 1 Bathroom; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>28 Apr 2020</td><td>Mile End</td><td><span>€649,634.00</span></td><td>1966</td><td>1,526 sq ft</td><td>Style: 1-Storey; 1 Bathroom; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>28 Apr 2020</td><td>Rivermount</td><td><span>€534,853.00</span></td><td>1939</td><td>1,304 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>29 Apr, 2020</td><td>Rivermount</td><td><span>€306,550.00</span></td><td>1910</td><td>1,453</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 May 20</td><td>Brookville</td><td><span>€655,566.00</span></td><td>2014</td><td>872 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>01 May 2020</td><td>Brookville</td><td><span>€1,064,350.00</span></td><td>2007</td><td>2,016</td><td>Style: 2-Storey; Type: Detached; 2 Bathrooms; 3 Bedrooms</td></tr>
+		<tr><td>01 May 2020</td><td>Clarawood</td><td><span>€342,964.00</span></td><td>1959</td><td>1,062 sq ft</td><td>Type: Duplex; 2 Bathrooms; 2 Bedrooms; Style: 1-Storey</td></tr>
+		<tr><td>01 May 2020</td><td>Clarawood</td><td><span>€477,182.00</span></td><td>1989</td><td>873 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 May 2020</td><td>Clarawood</td><td><span>€585,263.00</span></td><td>1967</td><td>1,080</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 May 2020</td><td>Clarawood</td><td><span>€555,424.00</span></td><td>1972</td><td>1,031</td><td>Type: Detached; 3 Bedrooms; 1 Bathroom; Style: Dormer</td></tr>
+		<tr><td>06 May 2020</td><td>Rivermount</td><td><span>€674,453.00</span></td><td>1910</td><td>2,441 sq ft</td><td>Type: Terraced; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 May 2020</td><td>Rivermount</td><td><span>€488,536.00</span></td><td>1949</td><td>1,141 sq ft</td><td>Type: Terraced; Style: 1-Storey; 1 Bathroom; 3 Bedrooms</td></tr>
+		<tr><td>10 May 2020</td><td>Brookville</td><td><span>€860,185.00</span></td><td>2019</td><td>1,215 sqft</td><td>Type: Detached; 3 Bedrooms; Style: 1-Storey; 2 Bathrooms</td></tr>
+		<tr><td>10 May 20</td><td>Brookville</td><td><span>€1,079,841.00</span></td><td>2003</td><td>1,580 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 May 2020</td><td>Brookville</td><td><span>€865,422.00</span></td><td>2013</td><td>1,706</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 May 2020</td><td>Clarawood</td><td><span>€585,887.00</span></td><td>1969</td><td>1,177 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 May, 2020</td><td>Mile End</td><td><span>€603,882.00</span></td><td>2015</td><td>1,104</td><td>Style: Dormer; 2 Bedrooms; 1 Bathroom; Type: Semi-Detached</td></tr>
+		<tr><td>12 May 2020</td><td>Mile End</td><td><span>€595,815.00</span></td><td>1977</td><td>1,155</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 May 2020</td><td>Brookville</td><td><span>€795,460.00</span></td><td>2014</td><td>1,391 sq ft</td><td>3 Bedrooms; Style: 1-Storey; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>15 May 2020</td><td>Clarawood</td><td><span>€992,385.00</span></td><td>1976</td><td>2,191 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 May 2020</td><td>Clarawood</td><td><span>€560,805.00</span></td><td>2002</td><td>752</td><td>Type: Semi-Detached; Style: Dormer; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>15 May 20</td><td>Mile End</td><td><span>€535,071.00</span></td><td>2014</td><td>1,740</td><td>Style: 2-Storey; 2 Bathrooms; Type: End-of-Terrace; 3 Bedrooms</td></tr>
+		<tr><td>16 May, 2020</td><td>Brookville</td><td><span>€527,983.00</span></td><td>1979</td><td>956 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>18 May, 2020</td><td>Clarawood</td><td><span>€545,719.00</span></td><td>1972</td><td>1,198</td><td>Style: Dormer; 1 Bathroom; 3 Bedrooms; Type: Duplex</td></tr>
+		<tr><td>21 May 2020</td><td>Rivermount</td><td><span>€452,619.00</span></td><td>1934</td><td>1,334 sqft</td><td>Style: 1-Storey; Type: Detached; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>23 May, 2020</td><td>Rivermount</td><td><span>€341,007.00</span></td><td>1910</td><td>1,789</td><td>Style: 2-Storey; Type: Detached; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>24 May 20</td><td>Clarawood</td><td><span>€557,152.00</span></td><td>1961</td><td>906 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 May, 2020</td><td>Clarawood</td><td><span>€583,705.00</span></td><td>1960</td><td>1,917</td><td>Type: Duplex; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 May 2020</td><td>West End</td><td><span>€700,800.00</span></td><td>2003</td><td>1,520 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 May 2020</td><td>West End</td><td><span>€761,188.00</span></td><td>1994</td><td>1,198 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 May 2020</td><td>Clarawood</td><td><span>€555,594.00</span></td><td>1967</td><td>1,236</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 May 20</td><td>Maple Ridge</td><td><span>€1,393,584.00</span></td><td>2017</td><td>1,705</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 May 2020</td><td>Maple Ridge</td><td><span>€1,717,964.00</span></td><td>2017</td><td>1,914 sq ft</td><td>3 Bathrooms; Style: 1-Storey; 4 Bedrooms; Type: Detached</td></tr>
+		<tr><td>28 May 20</td><td>Maple Ridge</td><td><span>€1,492,828.00</span></td><td>2012</td><td>1,616</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>29 May 2020</td><td>Brookville</td><td><span>€928,684.00</span></td><td>2014</td><td>1,504</td><td>3 Bedrooms; Style: 1-Storey; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>29 May 2020</td><td>Brookville</td><td><span>€1,417,191.00</span></td><td>2007</td><td>2,048 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>30 May 2020</td><td>West End</td><td><span>€716,767.00</span></td><td>1958</td><td>2,346</td><td>Type: Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 May 2020</td><td>West End</td><td><span>€858,831.00</span></td><td>2019</td><td>1,796 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Jun 2020</td><td>West End</td><td><span>€793,908.00</span></td><td>2007</td><td>1,503 sqft</td><td>Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Jun 20</td><td>West End</td><td><span>€753,098.00</span></td><td>2008</td><td>1,630 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Jun 2020</td><td>West End</td><td><span>€734,308.00</span></td><td>2005</td><td>1,453 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Jun 2020</td><td>Redbridge</td><td><span>€632,475.00</span></td><td>????</td><td>1,222 sqft</td><td>2 Bathrooms; Type: Semi-Detached; 2 Bedrooms; Style: 2-Storey</td></tr>
+		<tr><td>06 Jun, 2020</td><td>Redbridge</td><td><span>€995,121.00</span></td><td>2011</td><td>1,594 sq ft</td><td>2 Bathrooms; Style: 1-Storey; Type: Detached; 4 Bedrooms</td></tr>
+		<tr><td>06 Jun 2020</td><td>Redbridge</td><td><span>€916,472.00</span></td><td>2017</td><td>2,016 sq ft</td><td>Type: Detached; Style: 2-Storey; 5 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Jun 2020</td><td>Clarawood</td><td><span>€702,762.00</span></td><td>1962</td><td>1,377 sqft</td><td>2 Bathrooms; 4 Bedrooms; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>08 Jun 2020</td><td>Clarawood</td><td><span>€674,626.00</span></td><td>1976</td><td>1,104 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>08 Jun 2020</td><td>West End</td><td><span>€784,954.00</span></td><td>2012</td><td>1,499 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Jun 20</td><td>Rivermount</td><td><span>€443,934.00</span></td><td>1940</td><td>841 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>11 Jun 2020</td><td>Rivermount</td><td><span>€544,574.00</span></td><td>1951</td><td>1,399 sq ft</td><td>Style: 1-Storey; 1 Bathroom; Type: Detached; 2 Bedrooms</td></tr>
+		<tr><td>11 Jun, 2020</td><td>Rivermount</td><td><span>€542,498.00</span></td><td>1922</td><td>1,395</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Jun 2020</td><td>Rivermount</td><td><span>€381,133.00</span></td><td>1964</td><td>1,400</td><td>Type: Terraced; 2 Bathrooms; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>12 Jun 2020</td><td>Brookville</td><td><span>€1,233,532.00</span></td><td>2008</td><td>2,104 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Jun 2020</td><td>Brookville</td><td><span>€527,511.00</span></td><td>1982</td><td>865 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>16 Jun 2020</td><td>Maple Ridge</td><td><span>€1,236,953.00</span></td><td>2015</td><td>1,930</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Jun, 2020</td><td>Maple Ridge</td><td><span>€797,264.00</span></td><td>2015</td><td>1,374</td><td>Type: Semi-D; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Jun, 2020</td><td>Maple Ridge</td><td><span>€892,695.00</span></td><td>2013</td><td>1,399 sq ft</td><td>Type: Semi-D; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 Jun 2020</td><td>Rivermount</td><td><span>€489,090.00</span></td><td>1930</td><td>1,122 sq ft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 Jun 2020</td><td>Rivermount</td><td><span>€327,282.00</span></td><td>1915</td><td>1,802</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>23 Jun 2020</td><td>Clarawood</td><td><span>€441,246.00</span></td><td>1960</td><td>1,032 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Jun 2020</td><td>Rivermount</td><td><span>€474,857.00</span></td><td>1920</td><td>1,669</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Jun 2020</td><td>West End</td><td><span>€1,061,466.00</span></td><td>2015</td><td>1,788 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Jun 2020</td><td>West End</td><td><span>€713,995.00</span></td><td>2004</td><td>1,746 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 Jun 2020</td><td>Brookville</td><td><span>€865,669.00</span></td><td>2012</td><td>1,856</td><td>2 Bathrooms; Style: 2-Storey; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>27 Jun 20</td><td>Brookville</td><td><span>€1,014,457.00</span></td><td>2009</td><td>1,762 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Jun, 2020</td><td>Clarawood</td><td><span>€345,194.00</span></td><td>1981</td><td>845 sqft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 Jun 20</td><td>Clarawood</td><td><span>€669,367.00</span></td><td>1972</td><td>1,734 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 Jun 2020</td><td>Clarawood</td><td><span>€580,968.00</span></td><td>1964</td><td>1,379 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 Jun 2020</td><td>Clarawood</td><td><span>€1,171,788.00</span></td><td>1974</td><td>2,155 sqft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Jun 2020</td><td>Clarawood</td><td><span>€750,474.00</span></td><td>1983</td><td>1,283</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>30 Jun, 2020</td><td>Rivermount</td><td><span>€2,280,653.00</span></td><td>1902</td><td>3,610 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Jun 2020</td><td>Rivermount</td><td><span>€664,237.00</span></td><td>1961</td><td>1,467 sq ft</td><td>1 Bathroom; 2 Bedrooms; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>30 Jun 20</td><td>Rivermount</td><td><span>€521,142.00</span></td><td>1968</td><td>843</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>04 Jul, 2020</td><td>West End</td><td><span>€805,452.00</span></td><td>2005</td><td>1,481</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Jul 2020</td><td>West End</td><td><span>€759,869.00</span></td><td>2009</td><td>1,346 sq ft</td><td>Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>05 Jul 2020</td><td>Clarawood</td><td><span>€443,293.00</span></td><td>1960</td><td>1,039 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Jul 2020</td><td>Clarawood</td><td><span>€551,305.00</span></td><td>1969</td><td>1,019 sqft</td><td>3 Bedrooms; Style: 1-Storey; 1 Bathroom; Type: Detached</td></tr>
+		<tr><td>10 Jul 2020</td><td>West End</td><td><span>€827,434.00</span></td><td>2015</td><td>1,821 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Jul 2020</td><td>West End</td><td><span>€791,727.00</span></td><td>2006</td><td>1,610 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Jul 2020</td><td>West End</td><td><span>€809,402.00</span></td><td>2010</td><td>1,649 sq ft</td><td>Type: Detached; 4 Bedrooms; Style: 2-Storey; 2 Bathrooms</td></tr>
+		<tr><td>10 Jul 2020</td><td>West End</td><td><span>€740,868.00</span></td><td>2010</td><td>1,642</td><td>2 Bathrooms; Type: Detached; Style: 2-Storey; 3 Bedrooms</td></tr>
+		<tr><td>12 Jul 2020</td><td>Brookville</td><td><span>€618,152.00</span></td><td>2006</td><td>943 sq ft</td><td>Type: Detached; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Jul 2020</td><td>Brookville</td><td><span>€932,748.00</span></td><td>2000</td><td>1,719 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Jul 20</td><td>Brookville</td><td><span>€635,103.00</span></td><td>2008</td><td>984 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Jul 2020</td><td>Rivermount</td><td><span>€599,854.00</span></td><td>1926</td><td>1,706 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Jul 2020</td><td>Rivermount</td><td><span>€679,883.00</span></td><td>1911</td><td>2,424</td><td>Type: Terraced; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Jul 20</td><td>Rivermount</td><td><span>€639,965.00</span></td><td>1931</td><td>1,412</td><td>Style: 1-Storey; 4 Bedrooms; Type: Detached; 1 Bathroom</td></tr>
+		<tr><td>12 Jul 2020</td><td>West End</td><td><span>€769,136.00</span></td><td>2013</td><td>1,527</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Jul 2020</td><td>Brookville</td><td><span>€655,715.00</span></td><td>2005</td><td>1,015</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>13 Jul 2020</td><td>Brookville</td><td><span>€455,206.00</span></td><td>1986</td><td>956 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Jul 2020</td><td>Clarawood</td><td><span>€370,234.00</span></td><td>1960</td><td>1,052 sq ft</td><td>Type: Duplex; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Jul 2020</td><td>Clarawood</td><td><span>€672,094.00</span></td><td>1969</td><td>1,182</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Jul 2020</td><td>Mile End</td><td><span>€470,799.00</span></td><td>1928</td><td>1,231 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>18 Jul 2020</td><td>Clarawood</td><td><span>€769,551.00</span></td><td>1980</td><td>2,206 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>18 Jul 2020</td><td>Clarawood</td><td><span>€704,669.00</span></td><td>1966</td><td>1,756 sq ft</td><td>Type: Detached; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>18 Jul, 2020</td><td>Rivermount</td><td><span>€445,582.00</span></td><td>1935</td><td>1,096 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 Jul 2020</td><td>Brookville</td><td><span>€546,520.00</span></td><td>1986</td><td>985 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 Jul 2020</td><td>Clarawood</td><td><span>€533,735.00</span></td><td>1968</td><td>878 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 Jul 2020</td><td>Rivermount</td><td><span>€517,226.00</span></td><td>1965</td><td>1,156 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Jul 2020</td><td>Redbridge</td><td><span>€615,645.00</span></td><td>2015</td><td>1,237 sq ft</td><td>Type: End-of-Terrace; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Jul 2020</td><td>Redbridge</td><td><span>€833,237.00</span></td><td>2015</td><td>1,376 sqft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Jul 2020</td><td>Redbridge</td><td><span>€1,072,819.00</span></td><td>2009</td><td>2,034 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Jul, 2020</td><td>Redbridge</td><td><span>€1,020,698.00</span></td><td>2000</td><td>2,011</td><td>Type: Detached; Style: Two-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Jul 2020</td><td>Clarawood</td><td><span>€651,120.00</span></td><td>1976</td><td>1,342 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Jul 2020</td><td>Clarawood</td><td><span>€534,427.00</span></td><td>1967</td><td>837</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Jul 2020</td><td>West End</td><td><span>€865,789.00</span></td><td>2008</td><td>1,863 sq ft</td><td>4 Bedrooms; 2 Bathrooms; Style: 2-Storey; Type: Detached</td></tr>
+		<tr><td>28 Jul 2020</td><td>West End</td><td><span>€722,725.00</span></td><td>2007</td><td>1,432 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Jul 20</td><td>West End</td><td><span>€803,476.00</span></td><td>????</td><td>1,507 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>29 Jul 2020</td><td>Mile End</td><td><span>€310,240.00</span></td><td>1951</td><td>926 sq ft</td><td>Type: Terraced; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>29 Jul, 2020</td><td>Mile End</td><td><span>€636,202.00</span></td><td>2019</td><td>1,053 sqft</td><td>Type: Semi-D; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 Jul 2020</td><td>Clarawood</td><td><span>€566,813.00</span></td><td>1964</td><td>1,019 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>31 Jul 2020</td><td>Brookville</td><td><span>€948,839.00</span></td><td>????</td><td>1,477 sqft</td><td>2 Bathrooms; 3 Bedrooms; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>01 Aug 2020</td><td>Mile End</td><td><span>€361,255.00</span></td><td>1958</td><td>1,455 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 Aug 2020</td><td>Mile End</td><td><span>€465,103.00</span></td><td>1963</td><td>925 sq ft</td><td>Style: 1-Storey; 1 Bathroom; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>03 Aug 2020</td><td>Rivermount</td><td><span>€760,278.00</span></td><td>1935</td><td>1,671 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>04 Aug 2020</td><td>Brookville</td><td><span>€1,236,651.00</span></td><td>2011</td><td>1,790 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Aug, 2020</td><td>Mile End</td><td><span>€987,829.00</span></td><td>1958</td><td>1,997 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>11 Aug 2020</td><td>Brookville</td><td><span>€933,979.00</span></td><td>2009</td><td>1,603 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Aug 20</td><td>Brookville</td><td><span>€945,569.00</span></td><td>2004</td><td>1,563</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Aug 2020</td><td>Brookville</td><td><span>€601,313.00</span></td><td>2019</td><td>817 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>17 Aug 2020</td><td>Maple Ridge</td><td><span>€1,745,006.00</span></td><td>2013</td><td>1,795 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 Aug 2020</td><td>Rivermount</td><td><span>€475,097.00</span></td><td>1964</td><td>811 sq ft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 Aug 2020</td><td>Rivermount</td><td><span>€506,609.00</span></td><td>1921</td><td>1,895 sq ft</td><td>Type: Terraced; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 Aug 2020</td><td>Rivermount</td><td><span>€599,966.00</span></td><td>1923</td><td>1,667 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Aug 2020</td><td>Brookville</td><td><span>€848,856.00</span></td><td>2014</td><td>1,708 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Aug 2020</td><td>Brookville</td><td><span>€806,407.00</span></td><td>2012</td><td>1,495 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Aug 2020</td><td>Clarawood</td><td><span>€548,829.00</span></td><td>1951</td><td>1,568 sq ft</td><td>1 Bathroom; Style: 1-Storey; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>01 Sep 2020</td><td>Mile End</td><td><span>€505,084.00</span></td><td>1962</td><td>1,163</td><td>Type: Detached; 1 Bathroom; 2 Bedrooms; Style: One-Storey</td></tr>
+		<tr><td>06 Sep 2020</td><td>Maple Ridge</td><td><span>€1,439,335.00</span></td><td>2014</td><td>1,987 sq ft</td><td>2 Bathrooms; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>06 Sep 2020</td><td>Maple Ridge</td><td><span>€1,602,080.00</span></td><td>2017</td><td>2,352 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Sep 2020</td><td>Maple Ridge</td><td><span>€1,408,907.00</span></td><td>2014</td><td>2,443</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>09 Sep 2020</td><td>Maple Ridge</td><td><span>€1,188,198.00</span></td><td>2010</td><td>1,662 sqft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Sep 2020</td><td>Brookville</td><td><span>€841,741.00</span></td><td>2014</td><td>1,964 sqft</td><td>Style: 2-Storey; 4 Bedrooms; Type: Detached; 2 Bathrooms</td></tr>
+		<tr><td>26 Sep 2020</td><td>Brookville</td><td><span>€917,243.00</span></td><td>2014</td><td>1,490</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Sep 2020</td><td>Brookville</td><td><span>€1,036,889.00</span></td><td>2010</td><td>1,506 sqft</td><td>Style: 1-Storey; 2 Bathrooms; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>30 Sep 2020</td><td>Brookville</td><td><span>€769,385.00</span></td><td>2007</td><td>1,700 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Oct 20</td><td>Clarawood</td><td><span>€571,303.00</span></td><td>1961</td><td>2,137 sq ft</td><td>Type: Detached; 4 Bedrooms; Style: 1-Storey; 2 Bathrooms</td></tr>
+		<tr><td>06 Oct 2020</td><td>Mile End</td><td><span>€566,912.00</span></td><td>1964</td><td>1,861 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Oct 2020</td><td>West End</td><td><span>€759,614.00</span></td><td>2014</td><td>1,399 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Oct 2020</td><td>Rivermount</td><td><span>€688,462.00</span></td><td>1924</td><td>1,775 sqft</td><td>Type: Detached; Style: 2-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>16 Oct 2020</td><td>Clarawood</td><td><span>€608,690.00</span></td><td>1975</td><td>1,230</td><td>Style: One-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>16 Oct 2020</td><td>Rivermount</td><td><span>€463,513.00</span></td><td>1920</td><td>1,356 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>22 Oct 2020</td><td>Brookville</td><td><span>€947,573.00</span></td><td>2014</td><td>1,839 sq ft</td><td>Style: 1-Storey; 3 Bedrooms; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>23 Oct 2020</td><td>Rivermount</td><td><span>€470,532.00</span></td><td>1930</td><td>1,115 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>23 Oct, 2020</td><td>Rivermount</td><td><span>€1,149,924.00</span></td><td>1929</td><td>2,903 sqft</td><td>5 Bedrooms; Style: 1-Storey; Type: Detached; 2 Bathrooms</td></tr>
+		<tr><td>25 Oct 2020</td><td>Clarawood</td><td><span>€560,028.00</span></td><td>1977</td><td>964 sqft</td><td>Style: Dormer; 3 Bedrooms; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>30 Oct, 2020</td><td>Rivermount</td><td><span>€660,571.00</span></td><td>1930</td><td>1,794 sqft</td><td>4 Bedrooms; Type: Detached; Style: 2-Storey; 1 Bathroom</td></tr>
+		<tr><td>30 Oct, 2020</td><td>Rivermount</td><td><span>€532,320.00</span></td><td>1945</td><td>1,269 sq ft</td><td>Type: Detached; 1 Bathroom; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>06 Nov 2020</td><td>Clarawood</td><td><span>€573,774.00</span></td><td>????</td><td>1,030 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>08 Nov 2020</td><td>Brookville</td><td><span>€1,136,034.00</span></td><td>2012</td><td>1,970 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Nov 2020</td><td>Maple Ridge</td><td><span>€1,671,537.00</span></td><td>2013</td><td>1,966</td><td>Type: Detached; 3 Bedrooms; 2 Bathrooms; Style: 1-Storey</td></tr>
+		<tr><td>10 Nov, 2020</td><td>Maple Ridge</td><td><span>€1,185,817.00</span></td><td>2014</td><td>1,351 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Nov 2020</td><td>Maple Ridge</td><td><span>€2,731,800.00</span></td><td>2012</td><td>2,516 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>12 Nov 2020</td><td>West End</td><td><span>€1,015,354.00</span></td><td>2010</td><td>1,934 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Nov, 2020</td><td>Mile End</td><td><span>€626,864.00</span></td><td>1969</td><td>1,464 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Nov 2020</td><td>West End</td><td><span>€972,734.00</span></td><td>2007</td><td>2,253</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Nov 2020</td><td>West End</td><td><span>€698,167.00</span></td><td>1996</td><td>1,532 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Nov 2020</td><td>West End</td><td><span>€1,090,957.00</span></td><td>2007</td><td>1,795 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>05 Dec 2020</td><td>Clarawood</td><td><span>€902,038.00</span></td><td>1967</td><td>1,627 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Dec 2020</td><td>Clarawood</td><td><span>€914,515.00</span></td><td>1961</td><td>1,696</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 Dec 2020</td><td>Clarawood</td><td><span>€562,017.00</span></td><td>1989</td><td>960 sq ft</td><td>Type: Duplex; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Dec 2020</td><td>Clarawood</td><td><span>€502,318.00</span></td><td>1977</td><td>902 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 Jan 2021</td><td>Clarawood</td><td><span>€530,243.00</span></td><td>1969</td><td>1,238</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Jan, 2021</td><td>Brookville</td><td><span>€498,337.00</span></td><td>1985</td><td>950 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>29 Jan, 2021</td><td>Redbridge</td><td><span>€944,106.00</span></td><td>2010</td><td>1,706</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Jan 21</td><td>Clarawood</td><td><span>€594,777.00</span></td><td>1959</td><td>1,825</td><td>3 Bedrooms; Type: Detached; 2 Bathrooms; Style: 1-Storey</td></tr>
+		<tr><td>30 Jan 2021</td><td>Rivermount</td><td><span>€498,009.00</span></td><td>1920</td><td>1,905 sqft</td><td>Type: Terraced; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>04 Feb 2021</td><td>Mile End</td><td><span>€447,719.00</span></td><td>1964</td><td>958 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Feb 2021</td><td>Clarawood</td><td><span>€1,081,593.00</span></td><td>1983</td><td>2,223 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Feb 2021</td><td>Clarawood</td><td><span>€594,523.00</span></td><td>1980</td><td>1,824 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>17 Feb 2021</td><td>Clarawood</td><td><span>€525,138.00</span></td><td>????</td><td>1,072 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 Feb, 2021</td><td>Clarawood</td><td><span>€535,016.00</span></td><td>1965</td><td>1,350</td><td>Type: Detached; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 Feb 2021</td><td>Clarawood</td><td><span>€565,300.00</span></td><td>1975</td><td>1,093 sqft</td><td>Style: 1-Storey; Type: Detached; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Mar 21</td><td>Clarawood</td><td><span>€406,666.00</span></td><td>1972</td><td>1,209 sqft</td><td>Type: Duplex; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Mar 2021</td><td>Maple Ridge</td><td><span>€1,776,494.00</span></td><td>2016</td><td>2,671</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Mar 2021</td><td>Brookville</td><td><span>€454,924.00</span></td><td>1982</td><td>860 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>13 Mar 2021</td><td>Clarawood</td><td><span>€596,176.00</span></td><td>1981</td><td>962 sq ft</td><td>Style: 1-Storey; 1 Bathroom; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>14 Mar 2021</td><td>Clarawood</td><td><span>€691,171.00</span></td><td>1980</td><td>1,676 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Mar 2021</td><td>Redbridge</td><td><span>€1,465,054.00</span></td><td>2016</td><td>1,898 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Mar 2021</td><td>Redbridge</td><td><span>€1,078,580.00</span></td><td>2019</td><td>1,979</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Mar, 2021</td><td>Rivermount</td><td><span>€341,384.00</span></td><td>1940</td><td>1,248 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 Mar 2021</td><td>Rivermount</td><td><span>€709,141.00</span></td><td>1929</td><td>1,641</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Mar 2021</td><td>Rivermount</td><td><span>€558,188.00</span></td><td>1920</td><td>1,877</td><td>Type: Terraced; Style: 2-Storey; 4 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>21 Mar, 2021</td><td>Rivermount</td><td><span>€459,067.00</span></td><td>????</td><td>1,602</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Mar 2021</td><td>Redbridge</td><td><span>€621,800.00</span></td><td>2014</td><td>1,096 sq ft</td><td>Type: Semi-Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Mar 2021</td><td>Brookville</td><td><span>€752,502.00</span></td><td>2016</td><td>1,306</td><td>Type: Detached; 3 Bedrooms; Style: 1-Storey; 2 Bathrooms</td></tr>
+		<tr><td>06 Apr 2021</td><td>Clarawood</td><td><span>€709,548.00</span></td><td>1970</td><td>1,246 sq ft</td><td>Style: 1-Storey; Type: Detached; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>07 Apr 2021</td><td>Brookville</td><td><span>€515,896.00</span></td><td>2004</td><td>1,010 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>07 Apr 2021</td><td>Brookville</td><td><span>€833,030.00</span></td><td>2009</td><td>1,724 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Apr 2021</td><td>Rivermount</td><td><span>€581,167.00</span></td><td>1931</td><td>1,737</td><td>3 Bedrooms; Type: Detached; 2 Bathrooms; Style: 2-Storey</td></tr>
+		<tr><td>08 Apr 2021</td><td>Mile End</td><td><span>€580,761.00</span></td><td>1975</td><td>1,228 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>08 Apr 2021</td><td>Mile End</td><td><span>€442,631.00</span></td><td>1944</td><td>693 sq ft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Apr 2021</td><td>West End</td><td><span>€769,485.00</span></td><td>2010</td><td>1,442</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Apr 2021</td><td>West End</td><td><span>€857,276.00</span></td><td>2012</td><td>1,215 sqft</td><td>Type: Detached; Style: Dormer; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Apr 2021</td><td>West End</td><td><span>€776,567.00</span></td><td>2018</td><td>1,600 sqft</td><td>2 Bathrooms; Style: 2-Storey; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>12 Apr 2021</td><td>West End</td><td><span>€836,950.00</span></td><td>2013</td><td>1,735</td><td>Type: Detached; Style: Two-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Apr 2021</td><td>Clarawood</td><td><span>€664,920.00</span></td><td>1968</td><td>1,422 sqft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>13 Apr 2021</td><td>Clarawood</td><td><span>€927,284.00</span></td><td>1968</td><td>2,037</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Apr 2021</td><td>Clarawood</td><td><span>€691,091.00</span></td><td>1974</td><td>1,351 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>15 Apr 2021</td><td>Rivermount</td><td><span>€413,058.00</span></td><td>1966</td><td>863 sqft</td><td>Type: Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>15 Apr 2021</td><td>Rivermount</td><td><span>€1,163,980.00</span></td><td>1890</td><td>2,644 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>15 Apr 2021</td><td>Rivermount</td><td><span>€454,685.00</span></td><td>1949</td><td>1,038 sq ft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>17 Apr 2021</td><td>Clarawood</td><td><span>€1,082,109.00</span></td><td>1978</td><td>2,114</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>24 Apr 2021</td><td>Brookville</td><td><span>€931,828.00</span></td><td>2016</td><td>1,810</td><td>Style: 2-Storey; Type: Detached; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>24 Apr, 2021</td><td>Brookville</td><td><span>€623,503.00</span></td><td>2012</td><td>851</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 2 Bathrooms</td></tr>
+		<tr><td>24 Apr 2021</td><td>Clarawood</td><td><span>€627,097.00</span></td><td>1981</td><td>1,100 sq ft</td><td>Style: 1-Storey; 3 Bedrooms; Type: Detached; 1 Bathroom</td></tr>
+		<tr><td>26 Apr 2021</td><td>Clarawood</td><td><span>€420,579.00</span></td><td>1951</td><td>1,376 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Apr 2021</td><td>Clarawood</td><td><span>€437,612.00</span></td><td>1967</td><td>842 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Apr 2021</td><td>Clarawood</td><td><span>€634,475.00</span></td><td>1970</td><td>952</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Apr 2021</td><td>Mile End</td><td><span>€456,694.00</span></td><td>1955</td><td>1,486</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Apr 2021</td><td>Mile End</td><td><span>€717,147.00</span></td><td>1977</td><td>1,284 sq ft</td><td>Type: Detached; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Apr 2021</td><td>Clarawood</td><td><span>€707,934.00</span></td><td>1980</td><td>1,259 sq ft</td><td>Type: Detached; Style: 1-Storey; 1 Bathroom; 2 Bedrooms</td></tr>
+		<tr><td>01 May 2021</td><td>Clarawood</td><td><span>€530,090.00</span></td><td>1966</td><td>921 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 May 2021</td><td>Mile End</td><td><span>€482,340.00</span></td><td>2000</td><td>799 sqft</td><td>1 Bathroom; Type: Duplex; 3 Bedrooms; Style: Dormer</td></tr>
+		<tr><td>06 May 2021</td><td>Clarawood</td><td><span>€484,570.00</span></td><td>1960</td><td>998 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 May 21</td><td>Rivermount</td><td><span>€527,472.00</span></td><td>1951</td><td>1,400 sqft</td><td>2 Bedrooms; Type: Detached; Style: 1-Storey; 1 Bathroom</td></tr>
+		<tr><td>13 May 2021</td><td>Brookville</td><td><span>€836,476.00</span></td><td>2016</td><td>1,264</td><td>Type: Detached; 2 Bathrooms; Style: 1-Storey; 2 Bedrooms</td></tr>
+		<tr><td>13 May 2021</td><td>Clarawood</td><td><span>€557,927.00</span></td><td>1959</td><td>886</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 May 2021</td><td>Clarawood</td><td><span>€938,502.00</span></td><td>1970</td><td>1,673 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 May 2021</td><td>Clarawood</td><td><span>€354,573.00</span></td><td>1988</td><td>881 sq ft</td><td>3 Bedrooms; Style: 1-Storey; Type: Detached; 1 Bathroom</td></tr>
+		<tr><td>14 May 2021</td><td>Rivermount</td><td><span>€581,199.00</span></td><td>1910</td><td>1,815 sq ft</td><td>Style: 2-Storey; 4 Bedrooms; Type: Terraced; 2 Bathrooms</td></tr>
+		<tr><td>14 May 2021</td><td>Rivermount</td><td><span>€440,260.00</span></td><td>1912</td><td>1,251 sq ft</td><td>Style: 2-Storey; 3 Bedrooms; Type: Terraced; 2 Bathrooms</td></tr>
+		<tr><td>15 May, 2021</td><td>Brookville</td><td><span>€919,054.00</span></td><td>2008</td><td>1,818 sq ft</td><td>Style: 2-Storey; Type: Detached; 2 Bathrooms; 3 Bedrooms</td></tr>
+		<tr><td>16 May 2021</td><td>Mile End</td><td><span>€617,951.00</span></td><td>1986</td><td>1,120 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>18 May 2021</td><td>Clarawood</td><td><span>€627,485.00</span></td><td>1967</td><td>1,266 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>18 May 21</td><td>Clarawood</td><td><span>€554,953.00</span></td><td>1963</td><td>1,026 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>18 May, 2021</td><td>Maple Ridge</td><td><span>€1,287,335.00</span></td><td>2013</td><td>2,363 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 May 2021</td><td>Brookville</td><td><span>€594,533.00</span></td><td>2014</td><td>858</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>20 May 2021</td><td>Clarawood</td><td><span>€491,178.00</span></td><td>1981</td><td>886</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>20 May 2021</td><td>West End</td><td><span>€674,360.00</span></td><td>2001</td><td>1,481</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 May 21</td><td>Mile End</td><td><span>€375,280.00</span></td><td>1975</td><td>983 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 May 2021</td><td>West End</td><td><span>€946,116.00</span></td><td>2012</td><td>1,942</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>23 May 2021</td><td>Brookville</td><td><span>€889,131.00</span></td><td>2007</td><td>1,764 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>23 May 2021</td><td>Brookville</td><td><span>€1,355,465.00</span></td><td>2016</td><td>2,232</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>23 May 2021</td><td>Mile End</td><td><span>€452,118.00</span></td><td>1920</td><td>1,360 sq ft</td><td>Type: Detached; Style: Two-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>23 May 2021</td><td>Mile End</td><td><span>€398,898.00</span></td><td>1937</td><td>845 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 May, 2021</td><td>West End</td><td><span>€712,042.00</span></td><td>2005</td><td>1,600 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 May 2021</td><td>Brookville</td><td><span>€1,196,191.00</span></td><td>2008</td><td>2,468</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 May 21</td><td>Brookville</td><td><span>€924,238.00</span></td><td>2006</td><td>1,498</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 May 2021</td><td>Mile End</td><td><span>€305,860.00</span></td><td>1941</td><td>782 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 May 2021</td><td>Mile End</td><td><span>€331,264.00</span></td><td>1955</td><td>909 sqft</td><td>Type: Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>28 May 2021</td><td>West End</td><td><span>€786,042.00</span></td><td>2014</td><td>1,726</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 May 2021</td><td>West End</td><td><span>€725,929.00</span></td><td>2002</td><td>1,774 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>29 May 2021</td><td>Redbridge</td><td><span>€992,771.00</span></td><td>2011</td><td>1,936 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 May 2021</td><td>Rivermount</td><td><span>€425,214.00</span></td><td>1938</td><td>743 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 May 2021</td><td>Rivermount</td><td><span>€456,399.00</span></td><td>1961</td><td>793 sq ft</td><td>Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 May, 2021</td><td>Maple Ridge</td><td><span>€1,111,811.00</span></td><td>2016</td><td>1,665 sqft</td><td>Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 May 2021</td><td>Rivermount</td><td><span>€477,077.00</span></td><td>1890</td><td>2,227 sq ft</td><td>Type: Detached; Style: 2-Storey; 5 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Jun 2021</td><td>Clarawood</td><td><span>€655,742.00</span></td><td>1975</td><td>1,085</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 Jun 2021</td><td>Clarawood</td><td><span>€570,499.00</span></td><td>????</td><td>1,230 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 Jun 2021</td><td>Clarawood</td><td><span>€632,958.00</span></td><td>1973</td><td>1,219</td><td>Style: 1-Storey; 2 Bedrooms; 1 Bathroom; Type: Detached</td></tr>
+		<tr><td>04 Jun 2021</td><td>Clarawood</td><td><span>€443,206.00</span></td><td>1981</td><td>868 sq ft</td><td>Type: Detached; 1 Bathroom; 2 Bedrooms; Style: 1-Storey</td></tr>
+		<tr><td>04 Jun 2021</td><td>Maple Ridge</td><td><span>€840,388.00</span></td><td>2015</td><td>1,339</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Jun 2021</td><td>Redbridge</td><td><span>€755,323.00</span></td><td>2010</td><td>1,524 sq ft</td><td>Type: EndOfTerrace ; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Jun 2021</td><td>Redbridge</td><td><span>€1,154,027.00</span></td><td>2011</td><td>2,070 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Jun 2021</td><td>Rivermount</td><td><span>€310,600.00</span></td><td>1955</td><td>780</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Jun 2021</td><td>Clarawood</td><td><span>€557,560.00</span></td><td>1966</td><td>1,035 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Jun, 2021</td><td>Clarawood</td><td><span>€548,811.00</span></td><td>2008</td><td>757</td><td>Type: Semi-Detached; Style: Dormer; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>07 Jun 2021</td><td>Mile End</td><td><span>€489,117.00</span></td><td>1967</td><td>1,355 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>07 Jun 2021</td><td>West End</td><td><span>€585,165.00</span></td><td>1961</td><td>855 sq ft</td><td>Style: 1-Storey; 1 Bathroom; 2 Bedrooms; Type: Detached</td></tr>
+		<tr><td>07 Jun 2021</td><td>West End</td><td><span>€809,431.00</span></td><td>2009</td><td>1,469 sqft</td><td>Type: Detached; Style: 2-Storey; 2 Bathrooms; 3 Bedrooms</td></tr>
+		<tr><td>08 Jun 2021</td><td>Clarawood</td><td><span>€543,613.00</span></td><td>1966</td><td>911 sq ft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>09 Jun 2021</td><td>Clarawood</td><td><span>€488,522.00</span></td><td>1968</td><td>933</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>09 Jun 2021</td><td>Clarawood</td><td><span>€1,071,920.00</span></td><td>1977</td><td>2,997 sqft</td><td>Type: Detached; Style: Dormer; 5 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Jun, 2021</td><td>Mile End</td><td><span>€530,107.00</span></td><td>1966</td><td>1,140 sqft</td><td>1 Bathroom; Type: Detached; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>09 Jun 2021</td><td>Mile End</td><td><span>€459,183.00</span></td><td>1954</td><td>1,588 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Jun 2021</td><td>Redbridge</td><td><span>€1,057,217.00</span></td><td>2007</td><td>1,946</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Jun 2021</td><td>Redbridge</td><td><span>€1,244,110.00</span></td><td>2010</td><td>1,456</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Jun 2021</td><td>Clarawood</td><td><span>€502,730.00</span></td><td>1981</td><td>857 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>11 Jun 21</td><td>Maple Ridge</td><td><span>€1,641,026.00</span></td><td>2014</td><td>2,463 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Jun 2021</td><td>Maple Ridge</td><td><span>€901,967.00</span></td><td>2016</td><td>1,279 sq ft</td><td>2 Bedrooms; Style: 1-Storey; Type: Semi-Detached; 2 Bathrooms</td></tr>
+		<tr><td>11 Jun, 2021</td><td>Maple Ridge</td><td><span>€1,515,923.00</span></td><td>2014</td><td>1,905</td><td>Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Jun 2021</td><td>West End</td><td><span>€812,722.00</span></td><td>2009</td><td>1,818 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Jun 2021</td><td>Clarawood</td><td><span>€817,598.00</span></td><td>1976</td><td>1,915 sq ft</td><td>2 Bedrooms; Type: Detached; 2 Bathrooms; Style: 1-Storey</td></tr>
+		<tr><td>12 Jun 2021</td><td>Redbridge</td><td><span>€714,316.00</span></td><td>2010</td><td>1,513</td><td>Type: Semi-Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Jun 2021</td><td>Mile End</td><td><span>€1,076,502.00</span></td><td>1960</td><td>2,143 sqft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Jun 2021</td><td>Rivermount</td><td><span>€644,329.00</span></td><td>1958</td><td>1,537 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>16 Jun 2021</td><td>Brookville</td><td><span>€992,875.00</span></td><td>2013</td><td>1,503 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Jun, 2021</td><td>Clarawood</td><td><span>€788,682.00</span></td><td>1982</td><td>1,509 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>16 Jun 2021</td><td>Clarawood</td><td><span>€367,749.00</span></td><td>1957</td><td>1,041</td><td>Type: Duplex; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Jun 2021</td><td>Mile End</td><td><span>€218,995.00</span></td><td>1924</td><td>888 sq ft</td><td>Style: 1-Storey; Type: Bunaglow; 1 Bathroom; 2 Bedrooms</td></tr>
+		<tr><td>19 Jun 2021</td><td>Clarawood</td><td><span>€697,733.00</span></td><td>1974</td><td>1,986 sqft</td><td>Type: Detached; 1 Bathroom; Style: 2-Storey; 4 Bedrooms</td></tr>
+		<tr><td>19 Jun 2021</td><td>Rivermount</td><td><span>€340,908.00</span></td><td>1940</td><td>837 sqft</td><td>Style: 1-Storey; 1 Bathroom; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>19 Jun 21</td><td>West End</td><td><span>€750,005.00</span></td><td>2005</td><td>1,285</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Jun 2021</td><td>Clarawood</td><td><span>€611,078.00</span></td><td>1952</td><td>1,624 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 Jun 2021</td><td>Redbridge</td><td><span>€750,491.00</span></td><td>2009</td><td>1,473 sq ft</td><td>2 Bedrooms; 2 Bathrooms; Type: Semi-Detached; Style: 2-Storey</td></tr>
+		<tr><td>23 Jun, 2021</td><td>Brookville</td><td><span>€868,019.00</span></td><td>2008</td><td>1,703</td><td>Style: 2-Storey; 3 Bedrooms; Type: Detached; 2 Bathrooms</td></tr>
+		<tr><td>23 Jun, 2021</td><td>Mile End</td><td><span>€660,690.00</span></td><td>2015</td><td>1,074 sq ft</td><td>1 Bathroom; 2 Bedrooms; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>24 Jun 2021</td><td>Rivermount</td><td><span>€488,461.00</span></td><td>1958</td><td>1,176 sq ft</td><td>2 Bedrooms; Style: 1-Storey; Type: Detached; 1 Bathroom</td></tr>
+		<tr><td>24 Jun 2021</td><td>Rivermount</td><td><span>€470,395.00</span></td><td>1939</td><td>1,050 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Jun 2021</td><td>Clarawood</td><td><span>€599,194.00</span></td><td>1968</td><td>1,321 sq ft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Jun 2021</td><td>Clarawood</td><td><span>€604,080.00</span></td><td>1968</td><td>1,167 sqft</td><td>Type: Detached; 1 Bathroom; 3 Bedrooms; Style: Dormer</td></tr>
+		<tr><td>26 Jun 2021</td><td>Redbridge</td><td><span>€1,136,731.00</span></td><td>2016</td><td>1,625 sq ft</td><td>Style: 1-Storey; 3 Bedrooms; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>26 Jun 2021</td><td>Redbridge</td><td><span>€912,208.00</span></td><td>2007</td><td>1,737 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Jun, 2021</td><td>Clarawood</td><td><span>€778,713.00</span></td><td>1970</td><td>1,422 sq ft</td><td>Style: One-Storey; 3 Bedrooms; 1 Bathroom; Type: Detached</td></tr>
+		<tr><td>01 Jul 2021</td><td>Clarawood</td><td><span>€589,993.00</span></td><td>1978</td><td>1,051</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 Jul 2021</td><td>Rivermount</td><td><span>€438,822.00</span></td><td>1950</td><td>1,023 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 Jul 2021</td><td>Rivermount</td><td><span>€511,510.00</span></td><td>1935</td><td>1,466 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>04 Jul 2021</td><td>Clarawood</td><td><span>€719,295.00</span></td><td>1972</td><td>1,814 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Jul 2021</td><td>Brookville</td><td><span>€960,650.00</span></td><td>2013</td><td>1,960 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Jul 2021</td><td>West End</td><td><span>€938,727.00</span></td><td>2014</td><td>1,951 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Jul 2021</td><td>Clarawood</td><td><span>€567,357.00</span></td><td>1958</td><td>1,948 sq ft</td><td>Type: Duplex; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Jul 2021</td><td>Rivermount</td><td><span>€436,436.00</span></td><td>1930</td><td>958 sqft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>10 Jul 2021</td><td>Rivermount</td><td><span>€462,187.00</span></td><td>1948</td><td>901 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>11 Jul 2021</td><td>Clarawood</td><td><span>€631,429.00</span></td><td>1969</td><td>1,334 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>11 Jul 2021</td><td>Clarawood</td><td><span>€518,673.00</span></td><td>1970</td><td>1,042 sq ft</td><td>Style: 1-Storey; 3 Bedrooms; 1 Bathroom; Type: Detached</td></tr>
+		<tr><td>15 Jul 2021</td><td>Brookville</td><td><span>€1,393,212.00</span></td><td>2014</td><td>1,978 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Jul, 2021</td><td>Clarawood</td><td><span>€802,947.00</span></td><td>1974</td><td>1,878 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Jul 2021</td><td>Clarawood</td><td><span>€594,960.00</span></td><td>1977</td><td>1,217 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Jul 2021</td><td>Rivermount</td><td><span>€671,999.00</span></td><td>1900</td><td>2,582 sq ft</td><td>Type: Detached; 3 Bedrooms; Style: 2-Storey; 1 Bathroom</td></tr>
+		<tr><td>20 Jul 2021</td><td>Rivermount</td><td><span>€398,593.00</span></td><td>1933</td><td>983 sq ft</td><td>Style: 1-Storey; 1 Bathroom; 2 Bedrooms; Type: Detached</td></tr>
+		<tr><td>22 Jul 2021</td><td>West End</td><td><span>€692,913.00</span></td><td>2002</td><td>1,513 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Jul 2021</td><td>West End</td><td><span>€780,686.00</span></td><td>2009</td><td>1,719 sq ft</td><td>Type: Detached; 3 Bedrooms; Style: 2-Storey; 2 Bathrooms</td></tr>
+		<tr><td>23 Jul 21</td><td>Clarawood</td><td><span>€599,118.00</span></td><td>1968</td><td>1,536 sq ft</td><td>Style: 1-Storey; 1 Bathroom; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>24 Jul 21</td><td>Clarawood</td><td><span>€585,659.00</span></td><td>1971</td><td>1,787 sq ft</td><td>2 Bathrooms; Type: Duplex; 5 Bedrooms; Style: 1-Storey</td></tr>
+		<tr><td>24 Jul 2021</td><td>Clarawood</td><td><span>€579,252.00</span></td><td>1967</td><td>1,056 sq ft</td><td>Type: Terraced; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Jul 2021</td><td>Mile End</td><td><span>€336,792.00</span></td><td>1930</td><td>616 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Jul, 2021</td><td>Mile End</td><td><span>€523,864.00</span></td><td>1964</td><td>1,126 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Jul 2021</td><td>Clarawood</td><td><span>€427,480.00</span></td><td>1969</td><td>898 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Jul 2021</td><td>Clarawood</td><td><span>€530,262.00</span></td><td>1960</td><td>898 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Jul 2021</td><td>West End</td><td><span>€755,311.00</span></td><td>2007</td><td>1,452 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 Jul 2021</td><td>West End</td><td><span>€764,208.00</span></td><td>2009</td><td>1,529 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>29 Jul 2021</td><td>Clarawood</td><td><span>€486,329.00</span></td><td>1981</td><td>963 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>29 Jul 2021</td><td>Clarawood</td><td><span>€502,142.00</span></td><td>1959</td><td>945 sqft</td><td>Style: 1-Storey; 1 Bathroom; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>29 Jul 2021</td><td>Redbridge</td><td><span>€1,109,747.00</span></td><td>2016</td><td>1,637 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Jul, 2021</td><td>Brookville</td><td><span>€1,287,520.00</span></td><td>2012</td><td>1,662 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Jul 2021</td><td>Clarawood</td><td><span>€464,197.00</span></td><td>1968</td><td>899 sqft</td><td>Style: 1-Storey; 2 Bedrooms; 1 Bathroom; Type: Detached</td></tr>
+		<tr><td>31 Jul 2021</td><td>Clarawood</td><td><span>€577,670.00</span></td><td>1964</td><td>1,075</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 Aug 21</td><td>Rivermount</td><td><span>€398,767.00</span></td><td>1895</td><td>1,059 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 Aug 2021</td><td>Rivermount</td><td><span>€479,012.00</span></td><td>1956</td><td>1,193 sqft</td><td>Type: Terraced; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Aug 2021</td><td>Rivermount</td><td><span>€445,531.00</span></td><td>1955</td><td>871 sq ft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>06 Aug, 2021</td><td>Redbridge</td><td><span>€1,399,084.00</span></td><td>2014</td><td>1,727 sq ft</td><td>2 Bathrooms; Type: Detached; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>08 Aug 2021</td><td>Clarawood</td><td><span>€579,994.00</span></td><td>1970</td><td>1,416 sq ft</td><td>Style: 1-Storey; Type: Detached; 1 Bathroom; 3 Bedrooms</td></tr>
+		<tr><td>08 Aug 21</td><td>Clarawood</td><td><span>€594,278.00</span></td><td>1970</td><td>1,263 sq ft</td><td>2 Bathrooms; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>08 Aug 2021</td><td>West End</td><td><span>€746,032.00</span></td><td>2009</td><td>1,672</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Aug 2021</td><td>Maple Ridge</td><td><span>€1,248,996.00</span></td><td>2015</td><td>1,558 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Aug 2021</td><td>Maple Ridge</td><td><span>€1,423,614.00</span></td><td>2015</td><td>1,926 sqft</td><td>4 Bedrooms; Style: 1-Storey; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>11 Aug 2021</td><td>Maple Ridge</td><td><span>€956,890.00</span></td><td>2016</td><td>1,523</td><td>Type: End-of-Terrace; Style: One-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Aug 2021</td><td>Redbridge</td><td><span>€1,276,410.00</span></td><td>2017</td><td>1,457 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Aug 21</td><td>Redbridge</td><td><span>€1,069,772.00</span></td><td>2019</td><td>1,609 sq ft</td><td>Style: 1-Storey; 2 Bathrooms; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>15 Aug 2021</td><td>Redbridge</td><td><span>€1,165,973.00</span></td><td>2019</td><td>1,548 sqft</td><td>2 Bathrooms; 3 Bedrooms; Type: Detached; Style: 1-Storey</td></tr>
+		<tr><td>15 Aug 2021</td><td>Redbridge</td><td><span>€709,839.00</span></td><td>2016</td><td>1,438</td><td>Type: Semi-Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Aug 2021</td><td>West End</td><td><span>€717,107.00</span></td><td>2007</td><td>1,621 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 Aug 2021</td><td>Brookville</td><td><span>€1,005,144.00</span></td><td>2012</td><td>2,189 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 Aug 2021</td><td>Maple Ridge</td><td><span>€911,924.00</span></td><td>2016</td><td>1,577 sqft</td><td>Type: End-of-Terrace; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 Aug 2021</td><td>Maple Ridge</td><td><span>€1,164,740.00</span></td><td>2019</td><td>1,746 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Aug, 2021</td><td>Rivermount</td><td><span>€244,563.00</span></td><td>1937</td><td>978</td><td>Type: Bunaglow; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Aug 2021</td><td>Brookville</td><td><span>€505,007.00</span></td><td>2004</td><td>967 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 Aug 2021</td><td>Rivermount</td><td><span>€580,574.00</span></td><td>1990</td><td>927 sqft</td><td>Style: Dormer; Type: Duplex; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 Aug 2021</td><td>Rivermount</td><td><span>€616,625.00</span></td><td>1928</td><td>1,693 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Aug 2021</td><td>Brookville</td><td><span>€757,470.00</span></td><td>2005</td><td>1,201 sq ft</td><td>2 Bathrooms; Type: Detached; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>22 Aug 2021</td><td>Brookville</td><td><span>€533,412.00</span></td><td>1989</td><td>877 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>22 Aug 21</td><td>Brookville</td><td><span>€1,311,095.00</span></td><td>2019</td><td>1,672</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Aug 2021</td><td>Clarawood</td><td><span>€576,069.00</span></td><td>1968</td><td>1,074 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>31 Aug, 2021</td><td>West End</td><td><span>€683,761.00</span></td><td>2013</td><td>1,313 sq ft</td><td>Type: Detached; 3 Bedrooms; 2 Bathrooms; Style: 2-Storey</td></tr>
+		<tr><td>01 Sep 2021</td><td>Brookville</td><td><span>€769,348.00</span></td><td>2013</td><td>1,651 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Sep 2021</td><td>Rivermount</td><td><span>€354,718.00</span></td><td>????</td><td>2,359 sqft</td><td>5 Bedrooms; 2 Bathrooms; Style: 2-Storey; Type: Terraced</td></tr>
+		<tr><td>21 Sep 21</td><td>Rivermount</td><td><span>€658,906.00</span></td><td>1932</td><td>1,711 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Sep 2021</td><td>Brookville</td><td><span>€826,784.00</span></td><td>2012</td><td>1,478 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Oct 21</td><td>Brookville</td><td><span>€793,182.00</span></td><td>2013</td><td>1,319 sq ft</td><td>Type: Detached; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Oct 2021</td><td>Brookville</td><td><span>€885,214.00</span></td><td>2019</td><td>1,797 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Oct 2021</td><td>Rivermount</td><td><span>€636,918.00</span></td><td>1936</td><td>1,615</td><td>Type: Detached; 3 Bedrooms; 2 Bathrooms; Style: 1-Storey</td></tr>
+		<tr><td>14 Oct 21</td><td>Maple Ridge</td><td><span>€877,651.00</span></td><td>2016</td><td>1,374</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Oct 2021</td><td>Maple Ridge</td><td><span>€1,664,824.00</span></td><td>2006</td><td>2,459 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Oct 21</td><td>Clarawood</td><td><span>€665,404.00</span></td><td>1974</td><td>1,297 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Oct, 2021</td><td>Maple Ridge</td><td><span>€1,450,263.00</span></td><td>????</td><td>2,496 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Oct 2021</td><td>Maple Ridge</td><td><span>€1,354,606.00</span></td><td>2014</td><td>2,358</td><td>3 Bathrooms; 5 Bedrooms; Type: Detached; Style: 2-Storey</td></tr>
+		<tr><td>16 Oct 21</td><td>Maple Ridge</td><td><span>€1,081,666.00</span></td><td>2019</td><td>1,602 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Oct 2021</td><td>Mile End</td><td><span>€484,076.00</span></td><td>1964</td><td>964 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>20 Oct, 2021</td><td>Clarawood</td><td><span>€1,201,301.00</span></td><td>1980</td><td>2,228 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Nov 2021</td><td>Brookville</td><td><span>€767,796.00</span></td><td>2014</td><td>1,433 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Nov, 2021</td><td>Rivermount</td><td><span>€552,435.00</span></td><td>1920</td><td>2,321 sq ft</td><td>Type: Terraced; 2 Bathrooms; Style: 2-Storey; 4 Bedrooms</td></tr>
+		<tr><td>13 Nov 2021</td><td>Redbridge</td><td><span>€740,581.00</span></td><td>2009</td><td>1,453 sq ft</td><td>Type: End-of-Terrace; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Nov 2021</td><td>Redbridge</td><td><span>€1,068,622.00</span></td><td>2016</td><td>1,601 sq ft</td><td>Type: Detached; 2 Bathrooms; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>14 Nov 2021</td><td>Clarawood</td><td><span>€485,404.00</span></td><td>1958</td><td>1,070 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>18 Nov 2021</td><td>Brookville</td><td><span>€541,624.00</span></td><td>2013</td><td>858 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>18 Nov 2021</td><td>Clarawood</td><td><span>€506,974.00</span></td><td>1960</td><td>949</td><td>2 Bedrooms; Type: Detached; Style: 1-Storey; 1 Bathroom</td></tr>
+		<tr><td>24 Nov 2021</td><td>Clarawood</td><td><span>€484,100.00</span></td><td>????</td><td>1,729 sqft</td><td>Type: Duplex; Style: 1-Storey; 5 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Dec 2021</td><td>Brookville</td><td><span>€1,061,914.00</span></td><td>2005</td><td>2,106 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Dec, 2021</td><td>Redbridge</td><td><span>€1,211,380.00</span></td><td>2016</td><td>1,980</td><td>Style: 2-Storey; 3 Bedrooms; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>08 Dec 2021</td><td>Redbridge</td><td><span>€997,573.00</span></td><td>2016</td><td>1,618 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Dec 2021</td><td>Redbridge</td><td><span>€853,795.00</span></td><td>2015</td><td>1,274 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>15 Dec 21</td><td>Clarawood</td><td><span>€575,986.00</span></td><td>1981</td><td>1,089</td><td>3 Bedrooms; Style: Dormer; Type: Detached; 1 Bathroom</td></tr>
+		<tr><td>15 Dec, 2021</td><td>West End</td><td><span>€721,982.00</span></td><td>2010</td><td>1,459</td><td>Style: Dormer; 3 Bedrooms; Type: Detached; 2 Bathrooms</td></tr>
+		<tr><td>20 Dec, 2021</td><td>Redbridge</td><td><span>€1,568,450.00</span></td><td>2014</td><td>2,485 sq ft</td><td>Style: 2-Storey; Type: Detached; 4 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>20 Dec 2021</td><td>Redbridge</td><td><span>€1,109,836.00</span></td><td>2019</td><td>1,891 sq ft</td><td>2 Bathrooms; 3 Bedrooms; Type: Detached; Style: 2-Storey</td></tr>
+		<tr><td>04 Jan 2022</td><td>Brookville</td><td><span>€623,116.00</span></td><td>????</td><td>843</td><td>Type: Semi-D; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>16 Jan 2022</td><td>Brookville</td><td><span>€510,796.00</span></td><td>1982</td><td>757 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>20 Jan 2022</td><td>Mile End</td><td><span>€432,611.00</span></td><td>1920</td><td>1,334 sq ft</td><td>Type: Terraced; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>20 Jan 2022</td><td>Mile End</td><td><span>€300,324.00</span></td><td>1948</td><td>932 sqft</td><td>Type: Terraced; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Jan 2022</td><td>Redbridge</td><td><span>€934,007.00</span></td><td>2017</td><td>1,967</td><td>2 Bathrooms; Type: Detached; 4 Bedrooms; Style: 2-Storey</td></tr>
+		<tr><td>22 Jan 2022</td><td>Brookville</td><td><span>€768,614.00</span></td><td>2017</td><td>1,211 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Feb 2022</td><td>Redbridge</td><td><span>€996,408.00</span></td><td>2015</td><td>1,782 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Feb 22</td><td>Brookville</td><td><span>€526,654.00</span></td><td>1986</td><td>921 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Feb 2022</td><td>Brookville</td><td><span>€957,894.00</span></td><td>2006</td><td>2,024 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Feb 2022</td><td>Brookville</td><td><span>€788,239.00</span></td><td>2009</td><td>1,667</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Feb 2022</td><td>West End</td><td><span>€789,075.00</span></td><td>2014</td><td>1,482</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Feb 2022</td><td>West End</td><td><span>€723,143.00</span></td><td>2005</td><td>1,603</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>24 Feb 22</td><td>Brookville</td><td><span>€604,382.00</span></td><td>2004</td><td>1,004 sq ft</td><td>Type: Detached; Style: One-Storey; 1 Bathroom; 3 Bedrooms</td></tr>
+		<tr><td>24 Feb, 2022</td><td>Brookville</td><td><span>€1,019,334.00</span></td><td>2006</td><td>1,620 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 Feb 2022</td><td>Brookville</td><td><span>€907,002.00</span></td><td>2013</td><td>1,707 sqft</td><td>Style: 2-Storey; 2 Bathrooms; 3 Bedrooms</td></tr>
+		<tr><td>04 Mar 2022</td><td>Clarawood</td><td><span>€683,549.00</span></td><td>1969</td><td>1,267 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>10 Mar, 2022</td><td>Clarawood</td><td><span>€727,027.00</span></td><td>1972</td><td>1,726 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Mar 2022</td><td>Redbridge</td><td><span>€674,564.00</span></td><td>2009</td><td>1,262 sq ft</td><td>Type: EndOfTerrace ; Style: Two-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Mar 2022</td><td>Maple Ridge</td><td><span>€1,947,135.00</span></td><td>2013</td><td>2,669</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Mar 2022</td><td>Brookville</td><td><span>€1,046,748.00</span></td><td>2012</td><td>2,009 sqft</td><td>2 Bathrooms; Style: 2-Storey; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>15 Mar 22</td><td>Brookville</td><td><span>€919,351.00</span></td><td>2013</td><td>1,551 sq ft</td><td>Style: 1-Storey; Type: Detached; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Mar 2022</td><td>Mile End</td><td><span>€376,537.00</span></td><td>1951</td><td>1,138 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>16 Mar, 2022</td><td>Mile End</td><td><span>€312,229.00</span></td><td>1926</td><td>1,072 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>22 Mar 2022</td><td>Brookville</td><td><span>€564,326.00</span></td><td>2013</td><td>839 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>22 Mar 2022</td><td>Brookville</td><td><span>€526,611.00</span></td><td>1999</td><td>954 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>22 Mar 2022</td><td>Brookville</td><td><span>€533,346.00</span></td><td>1987</td><td>998 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>23 Mar 2022</td><td>Maple Ridge</td><td><span>€934,249.00</span></td><td>2014</td><td>1,520 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>23 Mar 2022</td><td>Maple Ridge</td><td><span>€2,003,827.00</span></td><td>2019</td><td>2,537 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>23 Mar 2022</td><td>Maple Ridge</td><td><span>€1,857,077.00</span></td><td>2008</td><td>2,343 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Mar 2022</td><td>Redbridge</td><td><span>€731,249.00</span></td><td>2016</td><td>1,281 sq ft</td><td>Style: 2-Storey; 2 Bedrooms; Type: Semi-Detached; 2 Bathrooms</td></tr>
+		<tr><td>02 Apr 2022</td><td>Clarawood</td><td><span>€590,665.00</span></td><td>1960</td><td>1,103 sqft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>09 Apr 2022</td><td>West End</td><td><span>€831,795.00</span></td><td>2014</td><td>1,622 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Apr 2022</td><td>West End</td><td><span>€904,831.00</span></td><td>2019</td><td>2,306</td><td>Type: Detached; Style: Two-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Apr 2022</td><td>Brookville</td><td><span>€908,627.00</span></td><td>2007</td><td>1,518 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Apr 2022</td><td>Brookville</td><td><span>€937,754.00</span></td><td>2016</td><td>1,533 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Apr 2022</td><td>Mile End</td><td><span>€389,889.00</span></td><td>1935</td><td>863 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Apr 2022</td><td>Clarawood</td><td><span>€700,802.00</span></td><td>1969</td><td>1,728 sqft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Apr, 2022</td><td>Clarawood</td><td><span>€585,182.00</span></td><td>1970</td><td>1,102 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Apr 2022</td><td>Clarawood</td><td><span>€344,787.00</span></td><td>1958</td><td>1,015 sq ft</td><td>Type: Duplex; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Apr 2022</td><td>Redbridge</td><td><span>€1,174,206.00</span></td><td>2018</td><td>1,595 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Apr 2022</td><td>Redbridge</td><td><span>€655,293.00</span></td><td>2012</td><td>1,254</td><td>2 Bathrooms; Style: 2-Storey; Type: Semi-Detached; 2 Bedrooms</td></tr>
+		<tr><td>15 Apr 2022</td><td>Redbridge</td><td><span>€604,799.00</span></td><td>2011</td><td>1,178</td><td>Type: End-of-Terrace; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>18 Apr 2022</td><td>Rivermount</td><td><span>€688,203.00</span></td><td>1915</td><td>1,922 sq ft</td><td>2 Bathrooms; 3 Bedrooms; Style: 1-Storey; Type: Terraced</td></tr>
+		<tr><td>19 Apr 2022</td><td>Brookville</td><td><span>€914,484.00</span></td><td>2014</td><td>1,459 sqft</td><td>2 Bathrooms; Type: Detached; 3 Bedrooms; Style: 1-Storey</td></tr>
+		<tr><td>21 Apr 2022</td><td>Maple Ridge</td><td><span>€1,231,474.00</span></td><td>2013</td><td>1,536 sqft</td><td>Type: Semi-Detached; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>21 Apr 2022</td><td>Maple Ridge</td><td><span>€1,205,541.00</span></td><td>2008</td><td>2,122 sq ft</td><td>Type: Detached; 3 Bathrooms; 3 Bedrooms; Style: 2-Storey</td></tr>
+		<tr><td>21 Apr, 2022</td><td>Mile End</td><td><span>€560,293.00</span></td><td>1965</td><td>1,427</td><td>3 Bedrooms; 1 Bathroom; Type: Detached; Style: 1-Storey</td></tr>
+		<tr><td>22 Apr, 2022</td><td>Mile End</td><td><span>€484,634.00</span></td><td>1910</td><td>1,364 sqft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>23 Apr 2022</td><td>Mile End</td><td><span>€569,258.00</span></td><td>1982</td><td>1,215 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>23 Apr 2022</td><td>Mile End</td><td><span>€675,662.00</span></td><td>1964</td><td>1,152 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Apr 2022</td><td>Clarawood</td><td><span>€580,754.00</span></td><td>1955</td><td>1,564 sqft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Apr 2022</td><td>Brookville</td><td><span>€443,676.00</span></td><td>1985</td><td>941 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Apr 2022</td><td>Clarawood</td><td><span>€561,220.00</span></td><td>1966</td><td>967 sq ft</td><td>2 Bedrooms; Style: 1-Storey; Type: Detached; 1 Bathroom</td></tr>
+		<tr><td>27 Apr 2022</td><td>Mile End</td><td><span>€306,244.00</span></td><td>1934</td><td>1,074 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Apr 2022</td><td>Mile End</td><td><span>€566,055.00</span></td><td>1966</td><td>1,651 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Apr 2022</td><td>Clarawood</td><td><span>€449,117.00</span></td><td>1982</td><td>867 sq ft</td><td>Style: 1-Storey; 1 Bathroom; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>30 Apr 2022</td><td>Rivermount</td><td><span>€532,759.00</span></td><td>1927</td><td>2,064 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 Apr 2022</td><td>Rivermount</td><td><span>€375,026.00</span></td><td>1962</td><td>832 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 May 2022</td><td>Mile End</td><td><span>€536,690.00</span></td><td>1956</td><td>1,232 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 May 2022</td><td>Mile End</td><td><span>€351,934.00</span></td><td>1957</td><td>1,141 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 May 2022</td><td>Mile End</td><td><span>€587,682.00</span></td><td>2008</td><td>1,122 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>02 May 2022</td><td>Clarawood</td><td><span>€745,321.00</span></td><td>1976</td><td>1,180 sq ft</td><td>Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 May 2022</td><td>West End</td><td><span>€801,010.00</span></td><td>2010</td><td>1,810 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 May 2022</td><td>West End</td><td><span>€805,872.00</span></td><td>2006</td><td>1,390 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 May 2022</td><td>Brookville</td><td><span>€986,962.00</span></td><td>2008</td><td>1,676 sq ft</td><td>Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 May, 2022</td><td>Mile End</td><td><span>€558,067.00</span></td><td>1964</td><td>1,484</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 May 2022</td><td>Mile End</td><td><span>€466,542.00</span></td><td>2006</td><td>761 sq ft</td><td>Type: Duplex; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 May 22</td><td>Redbridge</td><td><span>€902,178.00</span></td><td>2013</td><td>1,711 sqft</td><td>3 Bedrooms; Type: Detached; 2 Bathrooms; Style: 2-Storey</td></tr>
+		<tr><td>03 May 22</td><td>Redbridge</td><td><span>€767,375.00</span></td><td>2019</td><td>1,259 sq ft</td><td>Type: Semi-Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 May 2022</td><td>Clarawood</td><td><span>€645,997.00</span></td><td>1969</td><td>1,278 sqft</td><td>3 Bedrooms; Style: 1-Storey; 1 Bathroom; Type: Detached</td></tr>
+		<tr><td>05 May 22</td><td>Brookville</td><td><span>€520,598.00</span></td><td>1982</td><td>867 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 May 2022</td><td>Clarawood</td><td><span>€660,231.00</span></td><td>1970</td><td>1,248 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 May 2022</td><td>Clarawood</td><td><span>€622,900.00</span></td><td>1973</td><td>957 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>06 May 2022</td><td>Brookville</td><td><span>€1,141,014.00</span></td><td>2012</td><td>2,286</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 May 2022</td><td>Clarawood</td><td><span>€1,049,738.00</span></td><td>1980</td><td>2,151 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 May 2022</td><td>Mile End</td><td><span>€398,290.00</span></td><td>1975</td><td>1,680 sq ft</td><td>2 Bathrooms; 4 Bedrooms; Style: 1-Storey; Type: Duplex</td></tr>
+		<tr><td>07 May 22</td><td>Mile End</td><td><span>€414,531.00</span></td><td>1967</td><td>1,235</td><td>Style: 1-Storey; 2 Bedrooms; 1 Bathroom; Type: Detached</td></tr>
+		<tr><td>09 May 2022</td><td>Clarawood</td><td><span>€752,435.00</span></td><td>1968</td><td>1,403 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>09 May 2022</td><td>Mile End</td><td><span>€332,117.00</span></td><td>1920</td><td>824 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>10 May 2022</td><td>Brookville</td><td><span>€624,228.00</span></td><td>2014</td><td>847 sqft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>12 May 2022</td><td>Rivermount</td><td><span>€1,337,394.00</span></td><td>1890</td><td>3,472</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>12 May 2022</td><td>Rivermount</td><td><span>€343,771.00</span></td><td>1924</td><td>1,007 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 May 2022</td><td>Brookville</td><td><span>€1,020,044.00</span></td><td>2011</td><td>1,806</td><td>3 Bedrooms; 2 Bathrooms; Style: 2-Storey; Type: Detached</td></tr>
+		<tr><td>14 May 2022</td><td>Clarawood</td><td><span>€576,199.00</span></td><td>1966</td><td>1,194 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>15 May 2022</td><td>Redbridge</td><td><span>€894,673.00</span></td><td>2017</td><td>1,656 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 May 2022</td><td>Redbridge</td><td><span>€650,531.00</span></td><td>2009</td><td>1,413</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 May 2022</td><td>Redbridge</td><td><span>€1,544,058.00</span></td><td>2010</td><td>2,401 sqft</td><td>Style: 2-Storey; Type: Detached; 4 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>19 May 2022</td><td>Brookville</td><td><span>€1,221,261.00</span></td><td>2011</td><td>1,601 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 May, 2022</td><td>Clarawood</td><td><span>€874,675.00</span></td><td>1975</td><td>1,831 sq ft</td><td>4 Bedrooms; 1 Bathroom; Type: Detached; Style: 2-Storey</td></tr>
+		<tr><td>19 May 2022</td><td>Clarawood</td><td><span>€620,596.00</span></td><td>1970</td><td>1,332 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 May, 2022</td><td>Clarawood</td><td><span>€492,850.00</span></td><td>1971</td><td>905 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 May 2022</td><td>Mile End</td><td><span>€602,027.00</span></td><td>1967</td><td>1,539 sqft</td><td>Type: Detached; 1 Bathroom; Style: 1-Storey; 4 Bedrooms</td></tr>
+		<tr><td>22 May, 2022</td><td>Mile End</td><td><span>€754,812.00</span></td><td>1969</td><td>1,338 sq ft</td><td>Type: Detached; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>23 May, 2022</td><td>Clarawood</td><td><span>€603,816.00</span></td><td>1964</td><td>1,110 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 May 22</td><td>Rivermount</td><td><span>€613,176.00</span></td><td>1958</td><td>1,150 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 May 2022</td><td>Rivermount</td><td><span>€601,865.00</span></td><td>1960</td><td>1,287</td><td>2 Bedrooms; 1 Bathroom; Type: Detached; Style: One-Storey</td></tr>
+		<tr><td>27 May 2022</td><td>Brookville</td><td><span>€1,022,580.00</span></td><td>2013</td><td>1,670 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 May 2022</td><td>Brookville</td><td><span>€778,549.00</span></td><td>2014</td><td>1,667 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>29 May 2022</td><td>Brookville</td><td><span>€585,486.00</span></td><td>2014</td><td>840 sq ft</td><td>Style: 1-Storey; 1 Bedroom; 1 Bathroom; Type: Semi-Detached</td></tr>
+		<tr><td>01 Jun 2022</td><td>Rivermount</td><td><span>€1,141,805.00</span></td><td>1930</td><td>2,780 sq ft</td><td>Type: Detached; Style: 1-Storey; 5 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>05 Jun 2022</td><td>Mile End</td><td><span>€618,504.00</span></td><td>2015</td><td>1,072 sq ft</td><td>Type: Semi-Detached; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Jun 2022</td><td>Mile End</td><td><span>€750,707.00</span></td><td>2015</td><td>1,138 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Jun 2022</td><td>Redbridge</td><td><span>€757,151.00</span></td><td>2010</td><td>1,599 sqft</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Jun 2022</td><td>Clarawood</td><td><span>€688,584.00</span></td><td>1971</td><td>1,388</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>06 Jun 22</td><td>Maple Ridge</td><td><span>€748,349.00</span></td><td>2013</td><td>1,632 sqft</td><td>Type: End-of-Terrace; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Jun 2022</td><td>Maple Ridge</td><td><span>€2,219,152.00</span></td><td>2010</td><td>2,390 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>07 Jun 22</td><td>Clarawood</td><td><span>€561,911.00</span></td><td>1968</td><td>1,076 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>08 Jun 2022</td><td>Rivermount</td><td><span>€866,034.00</span></td><td>2013</td><td>2,094 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Jun 2022</td><td>Redbridge</td><td><span>€632,483.00</span></td><td>2014</td><td>1,199</td><td>Type: Semi-Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Jun 2022</td><td>Redbridge</td><td><span>€704,750.00</span></td><td>2012</td><td>1,512</td><td>Type: Semi-Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Jun, 2022</td><td>Rivermount</td><td><span>€576,601.00</span></td><td>1925</td><td>1,643 sq ft</td><td>4 Bedrooms; 2 Bathrooms; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>10 Jun 22</td><td>Clarawood</td><td><span>€702,993.00</span></td><td>1967</td><td>1,423</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>10 Jun 2022</td><td>Rivermount</td><td><span>€383,088.00</span></td><td>1920</td><td>1,165</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>10 Jun 2022</td><td>Rivermount</td><td><span>€556,710.00</span></td><td>1931</td><td>2,020 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>11 Jun 2022</td><td>Rivermount</td><td><span>€645,385.00</span></td><td>1925</td><td>1,394 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Jun 2022</td><td>Brookville</td><td><span>€784,131.00</span></td><td>2013</td><td>1,638 sqft</td><td>2 Bathrooms; 3 Bedrooms; Type: Detached; Style: 2-Storey</td></tr>
+		<tr><td>13 Jun 2022</td><td>West End</td><td><span>€808,256.00</span></td><td>2005</td><td>1,674 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Jun, 2022</td><td>West End</td><td><span>€746,263.00</span></td><td>2009</td><td>1,801 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Jun 2022</td><td>West End</td><td><span>€759,748.00</span></td><td>2004</td><td>1,571 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 Jun 2022</td><td>West End</td><td><span>€694,064.00</span></td><td>2001</td><td>1,488</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Jun 2022</td><td>West End</td><td><span>€693,576.00</span></td><td>1998</td><td>1,782 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>18 Jun 22</td><td>Clarawood</td><td><span>€711,673.00</span></td><td>1974</td><td>1,595</td><td>1 Bathroom; Style: 2-Storey; Type: Detached; 4 Bedrooms</td></tr>
+		<tr><td>18 Jun 2022</td><td>Clarawood</td><td><span>€715,251.00</span></td><td>1967</td><td>1,767 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>18 Jun 2022</td><td>Rivermount</td><td><span>€455,134.00</span></td><td>1967</td><td>919</td><td>1 Bathroom; Style: 1-Storey; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>20 Jun 22</td><td>Brookville</td><td><span>€1,037,347.00</span></td><td>2010</td><td>1,875 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Jun 2022</td><td>Mile End</td><td><span>€651,245.00</span></td><td>1963</td><td>1,115 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>22 Jun 2022</td><td>Rivermount</td><td><span>€662,957.00</span></td><td>1914</td><td>1,565 sqft</td><td>Type: Detached; Style: Two-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Jun 2022</td><td>Rivermount</td><td><span>€525,879.00</span></td><td>1924</td><td>1,463 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Jun, 2022</td><td>Rivermount</td><td><span>€600,400.00</span></td><td>1982</td><td>926 sq ft</td><td>1 Bathroom; Type: Duplex; 3 Bedrooms; Style: Dormer</td></tr>
+		<tr><td>22 Jun 2022</td><td>Rivermount</td><td><span>€495,539.00</span></td><td>1883</td><td>2,338</td><td>4 Bedrooms; Type: Detached; Style: 2-Storey; 2 Bathrooms</td></tr>
+		<tr><td>23 Jun 2022</td><td>Clarawood</td><td><span>€423,561.00</span></td><td>1964</td><td>865 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>23 Jun 2022</td><td>Rivermount</td><td><span>€280,419.00</span></td><td>1935</td><td>760</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 Jun 2022</td><td>Mile End</td><td><span>€616,097.00</span></td><td>????</td><td>1,279 sqft</td><td>1 Bathroom; Style: 1-Storey; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>25 Jun 2022</td><td>Brookville</td><td><span>€599,767.00</span></td><td>2005</td><td>1,110 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>25 Jun 2022</td><td>Brookville</td><td><span>€1,089,591.00</span></td><td>2014</td><td>1,688 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Jun, 2022</td><td>Clarawood</td><td><span>€898,955.00</span></td><td>1979</td><td>2,103 sq ft</td><td>Type: Detached; Style: Two-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Jun 2022</td><td>Clarawood</td><td><span>€566,806.00</span></td><td>1960</td><td>1,339 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Jun 2022</td><td>Rivermount</td><td><span>€512,068.00</span></td><td>1965</td><td>835 sq ft</td><td>1 Bathroom; Style: 1-Storey; 2 Bedrooms; Type: Detached</td></tr>
+		<tr><td>27 Jun 2022</td><td>Clarawood</td><td><span>€714,920.00</span></td><td>1974</td><td>1,333 sqft</td><td>Type: Detached; Style: Dormer; 1 Bathroom; 3 Bedrooms</td></tr>
+		<tr><td>28 Jun 2022</td><td>Brookville</td><td><span>€601,627.00</span></td><td>2014</td><td>873 sqft</td><td>Style: One-Storey; Type: Semi-Detached; 1 Bathroom; 1 Bedroom</td></tr>
+		<tr><td>29 Jun, 2022</td><td>Clarawood</td><td><span>€650,550.00</span></td><td>1970</td><td>1,289</td><td>Type: Detached; Style: 1-Storey; 1 Bathroom; 3 Bedrooms</td></tr>
+		<tr><td>30 Jun 2022</td><td>Rivermount</td><td><span>€679,455.00</span></td><td>1935</td><td>1,667</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 Jul 2022</td><td>Brookville</td><td><span>€822,514.00</span></td><td>2009</td><td>1,513 sq ft</td><td>Style: 1-Storey; 3 Bedrooms; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>01 Jul 2022</td><td>Brookville</td><td><span>€897,072.00</span></td><td>2013</td><td>1,777 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Jul 2022</td><td>Clarawood</td><td><span>€580,933.00</span></td><td>1975</td><td>1,115 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 Jul 2022</td><td>West End</td><td><span>€750,061.00</span></td><td>2015</td><td>1,471</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Jul 2022</td><td>West End</td><td><span>€807,140.00</span></td><td>2011</td><td>1,621</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>03 Jul 2022</td><td>Clarawood</td><td><span>€632,220.00</span></td><td>1979</td><td>1,083 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 Jul 2022</td><td>Mile End</td><td><span>€793,822.00</span></td><td>1928</td><td>1,681 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Jul 2022</td><td>Redbridge</td><td><span>€846,266.00</span></td><td>2014</td><td>1,422 sqft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Jul 2022</td><td>Redbridge</td><td><span>€1,220,899.00</span></td><td>2019</td><td>2,046</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Jul 2022</td><td>Redbridge</td><td><span>€1,008,672.00</span></td><td>2016</td><td>1,868 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Jul, 2022</td><td>Redbridge</td><td><span>€727,309.00</span></td><td>2013</td><td>1,402 sqft</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Jul 22</td><td>Redbridge</td><td><span>€1,097,289.00</span></td><td>2018</td><td>2,013</td><td>Style: Two-Storey; Type: Detached; 2 Bathrooms; 3 Bedrooms</td></tr>
+		<tr><td>03 Jul 2022</td><td>Redbridge</td><td><span>€1,056,022.00</span></td><td>2011</td><td>1,606 sq ft</td><td>2 Bathrooms; Style: 1-Storey; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>06 Jul 2022</td><td>Clarawood</td><td><span>€604,500.00</span></td><td>1974</td><td>1,094 sqft</td><td>Type: Detached; 3 Bedrooms; 1 Bathroom; Style: One-Storey</td></tr>
+		<tr><td>08 Jul, 2022</td><td>Brookville</td><td><span>€975,123.00</span></td><td>2008</td><td>2,043 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Jul 2022</td><td>Mile End</td><td><span>€1,036,822.00</span></td><td>1945</td><td>2,101 sqft</td><td>Style: 2-Storey; 4 Bedrooms; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>08 Jul 2022</td><td>Mile End</td><td><span>€296,069.00</span></td><td>1933</td><td>771 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>08 Jul 2022</td><td>Mile End</td><td><span>€584,310.00</span></td><td>2019</td><td>1,742 sq ft</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Jul, 2022</td><td>Redbridge</td><td><span>€1,111,514.00</span></td><td>2015</td><td>1,968</td><td>Type: Detached; 2 Bathrooms; Style: 2-Storey; 3 Bedrooms</td></tr>
+		<tr><td>08 Jul 2022</td><td>Redbridge</td><td><span>€738,506.00</span></td><td>2017</td><td>1,488 sqft</td><td>Type: End-of-Terrace; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Jul 2022</td><td>Redbridge</td><td><span>€938,599.00</span></td><td>2014</td><td>1,603 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Jul 2022</td><td>Redbridge</td><td><span>€882,265.00</span></td><td>2012</td><td>1,713</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Jul 2022</td><td>Maple Ridge</td><td><span>€899,407.00</span></td><td>2014</td><td>1,338 sqft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Jul 2022</td><td>Rivermount</td><td><span>€1,490,973.00</span></td><td>1903</td><td>2,776</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>11 Jul 2022</td><td>Brookville</td><td><span>€535,709.00</span></td><td>1985</td><td>965 sq ft</td><td>3 Bedrooms; Type: Detached; Style: 1-Storey; 1 Bathroom</td></tr>
+		<tr><td>11 Jul 2022</td><td>Clarawood</td><td><span>€557,432.00</span></td><td>1965</td><td>1,099 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Jul 2022</td><td>Brookville</td><td><span>€914,487.00</span></td><td>2004</td><td>1,904 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Jul 2022</td><td>Brookville</td><td><span>€1,415,403.00</span></td><td>2015</td><td>2,137</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Jul 2022</td><td>Mile End</td><td><span>€434,860.00</span></td><td>1950</td><td>987 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>13 Jul 2022</td><td>Clarawood</td><td><span>€391,288.00</span></td><td>1960</td><td>1,066 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>13 Jul 2022</td><td>Redbridge</td><td><span>€1,022,420.00</span></td><td>2016</td><td>1,604 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Jul 2022</td><td>Brookville</td><td><span>€807,791.00</span></td><td>????</td><td>1,703</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Jul 2022</td><td>Clarawood</td><td><span>€772,197.00</span></td><td>1974</td><td>1,414 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Jul 2022</td><td>Mile End</td><td><span>€699,811.00</span></td><td>2013</td><td>1,687 sqft</td><td>2 Bathrooms; Type: Detached; Style: 2-Storey; 3 Bedrooms</td></tr>
+		<tr><td>20 Jul, 2022</td><td>Mile End</td><td><span>€600,177.00</span></td><td>1970</td><td>1,808 sqft</td><td>Type: Detached; Style: One-Storey; 4 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>20 Jul 2022</td><td>Mile End</td><td><span>€820,657.00</span></td><td>1927</td><td>1,626</td><td>Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Jul, 2022</td><td>West End</td><td><span>€774,340.00</span></td><td>2007</td><td>1,600 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Jul, 2022</td><td>West End</td><td><span>€790,040.00</span></td><td>2006</td><td>1,726</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Jul 2022</td><td>West End</td><td><span>€753,013.00</span></td><td>1997</td><td>1,515 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Jul 2022</td><td>West End</td><td><span>€1,106,837.00</span></td><td>2007</td><td>2,008</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Jul 22</td><td>West End</td><td><span>€826,980.00</span></td><td>2008</td><td>1,625 sqft</td><td>Type: Detached; Style: Two-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Jul 2022</td><td>West End</td><td><span>€664,194.00</span></td><td>2019</td><td>1,294 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Jul 2022</td><td>Clarawood</td><td><span>€438,827.00</span></td><td>1967</td><td>925 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Jul 2022</td><td>Brookville</td><td><span>€987,165.00</span></td><td>2013</td><td>1,777 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Jul 2022</td><td>Brookville</td><td><span>€879,612.00</span></td><td>2004</td><td>1,896 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Jul 2022</td><td>Clarawood</td><td><span>€762,229.00</span></td><td>1971</td><td>987 sqft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Jul, 2022</td><td>West End</td><td><span>€817,682.00</span></td><td>2015</td><td>1,177 sqft</td><td>Type: Detached; Style: Dormer; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Jul 2022</td><td>West End</td><td><span>€752,793.00</span></td><td>1998</td><td>1,306 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Jul 2022</td><td>Maple Ridge</td><td><span>€1,191,428.00</span></td><td>2015</td><td>1,683 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Aug 22</td><td>West End</td><td><span>€745,210.00</span></td><td>2006</td><td>1,427 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Aug 2022</td><td>West End</td><td><span>€821,243.00</span></td><td>2000</td><td>1,492 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Aug 2022</td><td>Mile End</td><td><span>€511,800.00</span></td><td>1960</td><td>1,186 sqft</td><td>3 Bedrooms; 1 Bathroom; Type: Terraced; Style: 1-Storey</td></tr>
+		<tr><td>04 Aug, 2022</td><td>Mile End</td><td><span>€434,141.00</span></td><td>1926</td><td>1,368</td><td>Type: Detached; 2 Bedrooms; Style: 2-Storey; 1 Bathroom</td></tr>
+		<tr><td>04 Aug 2022</td><td>Mile End</td><td><span>€525,199.00</span></td><td>2012</td><td>1,687 sq ft</td><td>Type: Semi-Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Aug 2022</td><td>Maple Ridge</td><td><span>€1,281,829.00</span></td><td>2013</td><td>2,032 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Aug 2022</td><td>Rivermount</td><td><span>€426,858.00</span></td><td>1910</td><td>1,278 sq ft</td><td>Type: Terraced; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Aug 2022</td><td>Rivermount</td><td><span>€691,614.00</span></td><td>1893</td><td>1,813 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>17 Aug, 2022</td><td>Redbridge</td><td><span>€766,604.00</span></td><td>2009</td><td>1,498 sqft</td><td>Type: EndOfTerrace ; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Aug 2022</td><td>Redbridge</td><td><span>€971,617.00</span></td><td>2018</td><td>1,570 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Aug 2022</td><td>Redbridge</td><td><span>€747,764.00</span></td><td>2003</td><td>1,511</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Aug 2022</td><td>Redbridge</td><td><span>€659,419.00</span></td><td>2019</td><td>1,274 sq ft</td><td>2 Bathrooms; Type: Semi-Detached; 2 Bedrooms; Style: 2-Storey</td></tr>
+		<tr><td>19 Aug 2022</td><td>Clarawood</td><td><span>€606,177.00</span></td><td>1969</td><td>1,062 sq ft</td><td>1 Bathroom; Type: Detached; 3 Bedrooms; Style: 1-Storey</td></tr>
+		<tr><td>21 Aug 2022</td><td>Redbridge</td><td><span>€1,111,060.00</span></td><td>2013</td><td>1,998 sq ft</td><td>Type: Detached; Style: 2-Storey; 2 Bathrooms; 3 Bedrooms</td></tr>
+		<tr><td>21 Aug 22</td><td>Redbridge</td><td><span>€721,757.00</span></td><td>2002</td><td>1,412 sq ft</td><td>Type: Semi-Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Aug 2022</td><td>Rivermount</td><td><span>€433,758.00</span></td><td>1964</td><td>911 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Aug 2022</td><td>Clarawood</td><td><span>€507,081.00</span></td><td>1973</td><td>1,128 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>29 Aug 2022</td><td>Rivermount</td><td><span>€474,934.00</span></td><td>1936</td><td>1,092 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 Aug 2022</td><td>Clarawood</td><td><span>€521,061.00</span></td><td>1970</td><td>1,498 sq ft</td><td>Type: Detached; Style: Dormer; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Sep 2022</td><td>Brookville</td><td><span>€968,383.00</span></td><td>2012</td><td>1,489 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Sep 2022</td><td>Mile End</td><td><span>€523,459.00</span></td><td>????</td><td>1,387 sq ft</td><td>Type: Terraced; Style: One-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Sep 2022</td><td>Mile End</td><td><span>€608,102.00</span></td><td>1910</td><td>2,178</td><td>Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Sep 2022</td><td>Brookville</td><td><span>€797,800.00</span></td><td>2014</td><td>1,590 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Sep 2022</td><td>Brookville</td><td><span>€594,800.00</span></td><td>2016</td><td>847 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>16 Sep 2022</td><td>Brookville</td><td><span>€1,297,128.00</span></td><td>2011</td><td>2,276 sqft</td><td>2 Bathrooms; Style: 2-Storey; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>22 Sep 2022</td><td>Brookville</td><td><span>€980,845.00</span></td><td>2011</td><td>1,804</td><td>3 Bedrooms; Type: Detached; 2 Bathrooms; Style: 2-Storey</td></tr>
+		<tr><td>24 Sep 22</td><td>Clarawood</td><td><span>€580,342.00</span></td><td>1971</td><td>1,127 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Sep 2022</td><td>Mile End</td><td><span>€254,984.00</span></td><td>1924</td><td>848 sq ft</td><td>Type: Bunaglow; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Sep 2022</td><td>Mile End</td><td><span>€480,148.00</span></td><td>1965</td><td>1,428</td><td>Type: Duplex; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Sep, 2022</td><td>Mile End</td><td><span>€539,475.00</span></td><td>1956</td><td>1,383 sq ft</td><td>Type: Terraced; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Sep, 2022</td><td>Mile End</td><td><span>€977,064.00</span></td><td>1951</td><td>1,968 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>26 Sep, 2022</td><td>Mile End</td><td><span>€329,732.00</span></td><td>1967</td><td>984</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Sep 2022</td><td>Brookville</td><td><span>€1,012,611.00</span></td><td>2012</td><td>1,811 sq ft</td><td>3 Bedrooms; 2 Bathrooms; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>02 Oct 2022</td><td>Rivermount</td><td><span>€678,810.00</span></td><td>1938</td><td>1,398 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Oct, 2022</td><td>Maple Ridge</td><td><span>€645,810.00</span></td><td>2013</td><td>1,612</td><td>Type: End-of-Terrace; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Oct 2022</td><td>Maple Ridge</td><td><span>€1,286,622.00</span></td><td>2019</td><td>1,889 sq ft</td><td>4 Bedrooms; 2 Bathrooms; Type: Detached; Style: 1-Storey</td></tr>
+		<tr><td>04 Oct 2022</td><td>Clarawood</td><td><span>€700,903.00</span></td><td>1965</td><td>1,681 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>06 Oct, 2022</td><td>Clarawood</td><td><span>€580,532.00</span></td><td>1972</td><td>1,313 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>09 Oct 2022</td><td>Clarawood</td><td><span>€589,732.00</span></td><td>1969</td><td>1,264 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>09 Oct 2022</td><td>Clarawood</td><td><span>€644,198.00</span></td><td>1967</td><td>1,265 sq ft</td><td>Type: Detached; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>15 Oct 2022</td><td>Brookville</td><td><span>€613,665.00</span></td><td>1988</td><td>1,044 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>15 Oct 2022</td><td>Clarawood</td><td><span>€471,062.00</span></td><td>1963</td><td>905 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>15 Oct 2022</td><td>Clarawood</td><td><span>€622,861.00</span></td><td>1980</td><td>945 sq ft</td><td>3 Bedrooms; Type: Detached; 1 Bathroom; Style: 1-Storey</td></tr>
+		<tr><td>16 Oct 2022</td><td>Clarawood</td><td><span>€769,249.00</span></td><td>1975</td><td>1,265 sq ft</td><td>3 Bedrooms; 2 Bathrooms; Style: Dormer; Type: Detached</td></tr>
+		<tr><td>16 Oct 2022</td><td>West End</td><td><span>€838,771.00</span></td><td>2004</td><td>1,882 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Oct, 2022</td><td>West End</td><td><span>€740,489.00</span></td><td>2000</td><td>1,531 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Oct, 2022</td><td>Clarawood</td><td><span>€443,653.00</span></td><td>????</td><td>892</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 Oct 2022</td><td>Brookville</td><td><span>€813,090.00</span></td><td>2015</td><td>1,433 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Oct, 2022</td><td>Redbridge</td><td><span>€1,086,731.00</span></td><td>2017</td><td>1,592</td><td>3 Bedrooms; 2 Bathrooms; Style: One-Storey; Type: Detached</td></tr>
+		<tr><td>29 Oct 2022</td><td>Clarawood</td><td><span>€580,793.00</span></td><td>1973</td><td>1,811 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>04 Nov 2022</td><td>Rivermount</td><td><span>€541,551.00</span></td><td>1964</td><td>1,822 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>04 Nov 2022</td><td>Rivermount</td><td><span>€511,290.00</span></td><td>1934</td><td>1,419 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Nov 2022</td><td>Clarawood</td><td><span>€688,499.00</span></td><td>1968</td><td>1,245 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>20 Nov 2022</td><td>Brookville</td><td><span>€627,330.00</span></td><td>1987</td><td>1,019</td><td>Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Nov 2022</td><td>Brookville</td><td><span>€590,146.00</span></td><td>2017</td><td>815 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>26 Nov 2022</td><td>Clarawood</td><td><span>€1,071,677.00</span></td><td>1970</td><td>2,072 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Nov 2022</td><td>Clarawood</td><td><span>€592,975.00</span></td><td>1975</td><td>1,714 sqft</td><td>Type: Duplex; Style: 1-Storey; 5 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Nov 2022</td><td>Clarawood</td><td><span>€585,357.00</span></td><td>1957</td><td>1,116 sq ft</td><td>Type: Detached; 3 Bedrooms; Style: 1-Storey; 1 Bathroom</td></tr>
+		<tr><td>01 Dec 2022</td><td>Clarawood</td><td><span>€613,804.00</span></td><td>1975</td><td>893 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 Dec 2022</td><td>Brookville</td><td><span>€1,012,110.00</span></td><td>2009</td><td>1,880 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Dec 2022</td><td>Rivermount</td><td><span>€385,006.00</span></td><td>1966</td><td>861 sq ft</td><td>1 Bathroom; Type: Detached; Style: 1-Storey; 2 Bedrooms</td></tr>
+		<tr><td>02 Dec 2022</td><td>Rivermount</td><td><span>€389,752.00</span></td><td>1926</td><td>1,165 sq ft</td><td>Style: 1-Storey; Type: Detached; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>09 Dec 2022</td><td>Brookville</td><td><span>€933,847.00</span></td><td>2012</td><td>1,535 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Dec 2022</td><td>Brookville</td><td><span>€820,765.00</span></td><td>2018</td><td>1,227 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Dec 2022</td><td>Clarawood</td><td><span>€697,973.00</span></td><td>1972</td><td>1,408 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>11 Dec 2022</td><td>Clarawood</td><td><span>€461,366.00</span></td><td>1971</td><td>893 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>18 Dec 2022</td><td>Rivermount</td><td><span>€497,986.00</span></td><td>1882</td><td>2,356 sq ft</td><td>2 Bathrooms; 4 Bedrooms; Type: Detached; Style: 2-Storey</td></tr>
+		<tr><td>18 Dec, 2022</td><td>Rivermount</td><td><span>€590,265.00</span></td><td>1960</td><td>1,127</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 Dec 2022</td><td>Clarawood</td><td><span>€651,340.00</span></td><td>1973</td><td>1,149 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Jan 2023</td><td>Brookville</td><td><span>€1,340,587.00</span></td><td>2018</td><td>1,631 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Jan 2023</td><td>Mile End</td><td><span>€539,621.00</span></td><td>1959</td><td>1,693 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Jan 2023</td><td>Mile End</td><td><span>€558,790.00</span></td><td>2009</td><td>1,685 sqft</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Jan 2023</td><td>Mile End</td><td><span>€603,000.00</span></td><td>1969</td><td>1,311 sqft</td><td>Type: Detached; 1 Bathroom; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>12 Jan 2023</td><td>Mile End</td><td><span>€671,598.00</span></td><td>1985</td><td>1,442 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>13 Jan 2023</td><td>Clarawood</td><td><span>€648,057.00</span></td><td>1970</td><td>2,256 sq ft</td><td>Style: 2-Storey; 5 Bedrooms; Type: Duplex; 2 Bathrooms</td></tr>
+		<tr><td>25 Jan 2023</td><td>Maple Ridge</td><td><span>€1,236,102.00</span></td><td>2014</td><td>1,719 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Jan 2023</td><td>Mile End</td><td><span>€328,422.00</span></td><td>1967</td><td>824</td><td>3 Bedrooms; Style: 1-Storey; 1 Bathroom; Type: Detached</td></tr>
+		<tr><td>26 Jan 2023</td><td>Mile End</td><td><span>€555,000.00</span></td><td>1958</td><td>1,376 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 Feb 2023</td><td>Clarawood</td><td><span>€707,998.00</span></td><td>1974</td><td>1,512 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>01 Feb 2023</td><td>Clarawood</td><td><span>€1,130,211.00</span></td><td>1972</td><td>2,146</td><td>Style: One-Storey; 4 Bedrooms; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>02 Feb 23</td><td>Brookville</td><td><span>€738,641.00</span></td><td>2015</td><td>1,496 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Feb 23</td><td>Clarawood</td><td><span>€625,365.00</span></td><td>1963</td><td>1,491</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 Feb 2023</td><td>Mile End</td><td><span>€1,464,929.00</span></td><td>2017</td><td>1,692 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Feb 2023</td><td>Brookville</td><td><span>€960,860.00</span></td><td>2007</td><td>2,023 sq ft</td><td>Type: Detached; 3 Bedrooms; Style: 2-Storey; 2 Bathrooms</td></tr>
+		<tr><td>12 Feb, 2023</td><td>Brookville</td><td><span>€628,606.00</span></td><td>1981</td><td>1,014 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>13 Feb 2023</td><td>Rivermount</td><td><span>€367,611.00</span></td><td>1963</td><td>920</td><td>1 Bathroom; Type: Terraced; 2 Bedrooms; Style: 1-Storey</td></tr>
+		<tr><td>22 Feb 2023</td><td>Brookville</td><td><span>€839,331.00</span></td><td>2017</td><td>1,255 sqft</td><td>2 Bedrooms; 2 Bathrooms; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>22 Feb 2023</td><td>Brookville</td><td><span>€636,812.00</span></td><td>2014</td><td>939 sqft</td><td>Type: Detached; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 Feb, 2023</td><td>Brookville</td><td><span>€1,088,499.00</span></td><td>2018</td><td>1,723 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>24 Feb 2023</td><td>Brookville</td><td><span>€1,023,015.00</span></td><td>2012</td><td>1,526</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Feb 2023</td><td>Redbridge</td><td><span>€1,126,205.00</span></td><td>2015</td><td>1,998 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Feb 2023</td><td>Redbridge</td><td><span>€1,478,974.00</span></td><td>2019</td><td>2,037 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Mar 2023</td><td>Mile End</td><td><span>€321,468.00</span></td><td>1950</td><td>867</td><td>Type: Detached; 1 Bathroom; 1 Bedroom; Style: 1-Storey</td></tr>
+		<tr><td>07 Mar 2023</td><td>Mile End</td><td><span>€580,658.00</span></td><td>2013</td><td>1,113 sq ft</td><td>Style: 1-Storey; 2 Bedrooms; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>07 Mar 2023</td><td>Mile End</td><td><span>€406,114.00</span></td><td>1955</td><td>1,291</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>07 Mar 2023</td><td>Mile End</td><td><span>€365,410.00</span></td><td>1961</td><td>1,387 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 Mar 2023</td><td>Brookville</td><td><span>€855,541.00</span></td><td>2008</td><td>1,801 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Mar 2023</td><td>Mile End</td><td><span>€707,384.00</span></td><td>1974</td><td>1,513 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Mar 2023</td><td>Mile End</td><td><span>€723,081.00</span></td><td>2006</td><td>1,665 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>16 Mar 2023</td><td>Redbridge</td><td><span>€733,296.00</span></td><td>2009</td><td>1,491</td><td>3 Bedrooms; Style: 2-Storey; 2 Bathrooms; Type: Semi-Detached</td></tr>
+		<tr><td>16 Mar 2023</td><td>Redbridge</td><td><span>€604,568.00</span></td><td>2010</td><td>1,066</td><td>Type: Semi-Detached; Style: 2-Storey; 2 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>19 Mar 2023</td><td>Brookville</td><td><span>€548,404.00</span></td><td>1982</td><td>765</td><td>Type: Detached; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 Mar 2023</td><td>Brookville</td><td><span>€999,305.00</span></td><td>2001</td><td>2,072 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Mar 2023</td><td>Clarawood</td><td><span>€543,771.00</span></td><td>1964</td><td>1,259 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 Mar 23</td><td>West End</td><td><span>€740,785.00</span></td><td>2004</td><td>1,515 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Mar 2023</td><td>West End</td><td><span>€1,730,818.00</span></td><td>2016</td><td>1,747 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Mar 2023</td><td>West End</td><td><span>€789,145.00</span></td><td>2012</td><td>1,406 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Mar, 2023</td><td>West End</td><td><span>€786,603.00</span></td><td>2013</td><td>1,498</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Mar, 2023</td><td>West End</td><td><span>€737,221.00</span></td><td>2003</td><td>1,394 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>27 Mar 2023</td><td>West End</td><td><span>€741,067.00</span></td><td>2015</td><td>1,569</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 Mar 2023</td><td>West End</td><td><span>€703,491.00</span></td><td>2003</td><td>1,594 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>27 Mar 2023</td><td>West End</td><td><span>€969,641.00</span></td><td>2019</td><td>1,916 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>29 Mar 2023</td><td>Brookville</td><td><span>€997,579.00</span></td><td>2012</td><td>1,604 sqft</td><td>Style: 1-Storey; 2 Bathrooms; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>29 Mar 2023</td><td>Rivermount</td><td><span>€465,702.00</span></td><td>1937</td><td>1,056</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>29 Mar 2023</td><td>Rivermount</td><td><span>€394,793.00</span></td><td>1963</td><td>865 sqft</td><td>Type: Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>29 Mar 2023</td><td>Rivermount</td><td><span>€2,269,950.00</span></td><td>1907</td><td>3,448</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>29 Mar 2023</td><td>Rivermount</td><td><span>€1,530,148.00</span></td><td>1909</td><td>2,879 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>31 Mar 2023</td><td>Maple Ridge</td><td><span>€1,261,437.00</span></td><td>2014</td><td>1,860 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Mar 2023</td><td>Maple Ridge</td><td><span>€654,543.00</span></td><td>2019</td><td>1,649</td><td>Type: End-of-Terrace; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Mar 2023</td><td>Maple Ridge</td><td><span>€1,719,927.00</span></td><td>2014</td><td>1,803 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>31 Mar, 2023</td><td>Maple Ridge</td><td><span>€860,749.00</span></td><td>2014</td><td>1,332 sq ft</td><td>Type: End-of-Terrace; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Apr 2023</td><td>Brookville</td><td><span>€924,611.00</span></td><td>2017</td><td>1,801</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Apr 2023</td><td>Redbridge</td><td><span>€1,413,705.00</span></td><td>2018</td><td>2,003 sq ft</td><td>3 Bedrooms; Type: Detached; Style: 2-Storey; 2 Bathrooms</td></tr>
+		<tr><td>03 Apr 2023</td><td>Redbridge</td><td><span>€988,055.00</span></td><td>2013</td><td>1,627 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Apr 2023</td><td>Redbridge</td><td><span>€682,172.00</span></td><td>2007</td><td>1,307 sqft</td><td>Type: EndOfTerrace ; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Apr 2023</td><td>Redbridge</td><td><span>€769,030.00</span></td><td>2003</td><td>1,509 sq ft</td><td>Type: Semi-Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Apr 2023</td><td>Redbridge</td><td><span>€1,018,749.00</span></td><td>2013</td><td>1,771 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Apr 2023</td><td>Maple Ridge</td><td><span>€2,714,629.00</span></td><td>2018</td><td>2,421</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Apr 2023</td><td>West End</td><td><span>€1,041,839.00</span></td><td>2010</td><td>2,269</td><td>2 Bathrooms; 4 Bedrooms; Style: 2-Storey; Type: Detached</td></tr>
+		<tr><td>12 Apr 2023</td><td>Brookville</td><td><span>€552,839.00</span></td><td>1982</td><td>793 sq ft</td><td>Type: Detached; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Apr 2023</td><td>Brookville</td><td><span>€817,415.00</span></td><td>2014</td><td>1,720 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Apr 2023</td><td>Mile End</td><td><span>€389,450.00</span></td><td>1955</td><td>1,516 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Apr 2023</td><td>Mile End</td><td><span>€1,074,887.00</span></td><td>1958</td><td>2,214 sq ft</td><td>4 Bedrooms; Type: Detached; Style: 1-Storey; 2 Bathrooms</td></tr>
+		<tr><td>15 Apr 2023</td><td>Rivermount</td><td><span>€443,306.00</span></td><td>1957</td><td>1,261 sq ft</td><td>Style: 1-Storey; 1 Bathroom; 2 Bedrooms</td></tr>
+		<tr><td>17 Apr 2023</td><td>Mile End</td><td><span>€557,935.00</span></td><td>1966</td><td>1,225</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>17 Apr 2023</td><td>Mile End</td><td><span>€363,766.00</span></td><td>1958</td><td>1,187 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>17 Apr 23</td><td>Mile End</td><td><span>€483,169.00</span></td><td>1911</td><td>1,316 sqft</td><td>Type: Detached; Style: One-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>17 Apr, 2023</td><td>Mile End</td><td><span>€634,372.00</span></td><td>????</td><td>2,201 sq ft</td><td>Type: Duplex; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>18 Apr 2023</td><td>Clarawood</td><td><span>€507,139.00</span></td><td>1977</td><td>1,585</td><td>Type: Duplex; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>18 Apr, 2023</td><td>Clarawood</td><td><span>€575,991.00</span></td><td>????</td><td>1,616 sq ft</td><td>Style: 1-Storey; Type: Detached; 2 Bathrooms; 3 Bedrooms</td></tr>
+		<tr><td>20 Apr, 2023</td><td>West End</td><td><span>€793,603.00</span></td><td>2003</td><td>1,485 sq ft</td><td>Type: Detached; 3 Bedrooms; Style: 2-Storey; 2 Bathrooms</td></tr>
+		<tr><td>20 Apr 2023</td><td>West End</td><td><span>€837,422.00</span></td><td>????</td><td>1,683</td><td>Style: 2-Storey; 3 Bedrooms; Type: Detached; 2 Bathrooms</td></tr>
+		<tr><td>24 Apr 23</td><td>Maple Ridge</td><td><span>€902,683.00</span></td><td>2017</td><td>1,305</td><td>2 Bedrooms; Type: End-of-Terrace; Style: 1-Storey; 2 Bathrooms</td></tr>
+		<tr><td>24 Apr 2023</td><td>Maple Ridge</td><td><span>€1,774,983.00</span></td><td>2019</td><td>2,668 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Apr 23</td><td>Brookville</td><td><span>€924,095.00</span></td><td>2006</td><td>1,645 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Apr 2023</td><td>Brookville</td><td><span>€830,728.00</span></td><td>2019</td><td>1,158</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>29 Apr 2023</td><td>Rivermount</td><td><span>€626,290.00</span></td><td>1967</td><td>1,256</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>29 Apr 2023</td><td>Rivermount</td><td><span>€468,375.00</span></td><td>1885</td><td>2,279 sqft</td><td>Type: Detached; Style: 2-Storey; 5 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Apr 2023</td><td>Clarawood</td><td><span>€618,376.00</span></td><td>1969</td><td>1,180 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 May 2023</td><td>West End</td><td><span>€771,891.00</span></td><td>2000</td><td>1,421 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 May, 2023</td><td>West End</td><td><span>€714,750.00</span></td><td>2005</td><td>1,488 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 May, 2023</td><td>West End</td><td><span>€760,019.00</span></td><td>2003</td><td>1,556 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 May 2023</td><td>West End</td><td><span>€846,241.00</span></td><td>2004</td><td>1,764 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 May, 2023</td><td>West End</td><td><span>€765,809.00</span></td><td>2014</td><td>1,467 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>05 May 2023</td><td>Brookville</td><td><span>€571,331.00</span></td><td>2004</td><td>1,010 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 May 2023</td><td>Clarawood</td><td><span>€641,415.00</span></td><td>1967</td><td>1,321 sq ft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 May 2023</td><td>Rivermount</td><td><span>€443,727.00</span></td><td>1920</td><td>1,228 sq ft</td><td>Type: Detached; Style: 2-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>06 May 2023</td><td>Redbridge</td><td><span>€1,135,824.00</span></td><td>2014</td><td>1,981</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 May, 2023</td><td>West End</td><td><span>€988,156.00</span></td><td>2009</td><td>2,003 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 May, 2023</td><td>West End</td><td><span>€826,422.00</span></td><td>2008</td><td>1,951</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 May, 2023</td><td>Redbridge</td><td><span>€1,121,755.00</span></td><td>2015</td><td>1,931</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>08 May 2023</td><td>Redbridge</td><td><span>€817,271.00</span></td><td>2016</td><td>1,200</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>09 May, 2023</td><td>Rivermount</td><td><span>€1,191,719.00</span></td><td>1890</td><td>2,642 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>10 May 2023</td><td>Clarawood</td><td><span>€543,744.00</span></td><td>1958</td><td>950</td><td>Type: Detached; 2 Bedrooms; 1 Bathroom; Style: 1-Storey</td></tr>
+		<tr><td>10 May 2023</td><td>Clarawood</td><td><span>€571,383.00</span></td><td>1960</td><td>1,901 sq ft</td><td>1 Bathroom; 3 Bedrooms; Type: Detached; Style: 1-Storey</td></tr>
+		<tr><td>10 May 2023</td><td>Rivermount</td><td><span>€432,148.00</span></td><td>????</td><td>1,626 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>13 May 2023</td><td>Brookville</td><td><span>€1,057,236.00</span></td><td>2017</td><td>1,798 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 May 2023</td><td>Brookville</td><td><span>€1,429,400.00</span></td><td>2010</td><td>2,174 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 May 2023</td><td>Brookville</td><td><span>€847,291.00</span></td><td>2002</td><td>1,419 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 May 2023</td><td>Brookville</td><td><span>€1,029,888.00</span></td><td>2015</td><td>1,617</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 May, 2023</td><td>Mile End</td><td><span>€398,350.00</span></td><td>1948</td><td>805 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>23 May 2023</td><td>Clarawood</td><td><span>€750,559.00</span></td><td>1972</td><td>1,372</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>23 May 2023</td><td>Clarawood</td><td><span>€593,933.00</span></td><td>1964</td><td>1,076 sq ft</td><td>3 Bedrooms; Style: 1-Storey; 1 Bathroom; Type: Detached</td></tr>
+		<tr><td>23 May 2023</td><td>Clarawood</td><td><span>€613,654.00</span></td><td>1957</td><td>1,256 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 May 2023</td><td>Brookville</td><td><span>€581,129.00</span></td><td>2013</td><td>842 sqft</td><td>1 Bedroom; 1 Bathroom; Type: Semi-Detached; Style: 1-Storey</td></tr>
+		<tr><td>24 May 2023</td><td>Brookville</td><td><span>€920,322.00</span></td><td>2019</td><td>1,453 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 May 2023</td><td>Mile End</td><td><span>€434,692.00</span></td><td>1959</td><td>1,130 sqft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 May 2023</td><td>Mile End</td><td><span>€391,359.00</span></td><td>1951</td><td>798 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 May 23</td><td>West End</td><td><span>€975,376.00</span></td><td>2011</td><td>2,032 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 May 2023</td><td>Rivermount</td><td><span>€441,324.00</span></td><td>1934</td><td>818 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 May, 2023</td><td>Rivermount</td><td><span>€371,753.00</span></td><td>1958</td><td>895 sq ft</td><td>Style: 1-Storey; Type: Terraced; 1 Bathroom; 2 Bedrooms</td></tr>
+		<tr><td>30 May 2023</td><td>Rivermount</td><td><span>€346,929.00</span></td><td>1947</td><td>856 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 May 2023</td><td>Rivermount</td><td><span>€553,613.00</span></td><td>1928</td><td>1,719 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>01 Jun 2023</td><td>Clarawood</td><td><span>€367,487.00</span></td><td>1960</td><td>1,020 sqft</td><td>Style: 1-Storey; 2 Bedrooms; Type: Duplex; 2 Bathrooms</td></tr>
+		<tr><td>02 Jun 2023</td><td>Brookville</td><td><span>€803,236.00</span></td><td>2011</td><td>1,420</td><td>Type: Detached; 3 Bedrooms; 2 Bathrooms; Style: 1-Storey</td></tr>
+		<tr><td>02 Jun 2023</td><td>Brookville</td><td><span>€646,369.00</span></td><td>1983</td><td>1,044</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Jun 2023</td><td>Brookville</td><td><span>€1,283,307.00</span></td><td>2002</td><td>2,064 sqft</td><td>Type: Detached; Style: Two-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Jun 2023</td><td>Clarawood</td><td><span>€529,867.00</span></td><td>1966</td><td>1,077 sq ft</td><td>2 Bedrooms; Style: 1-Storey; Type: Detached; 1 Bathroom</td></tr>
+		<tr><td>02 Jun 2023</td><td>Clarawood</td><td><span>€593,644.00</span></td><td>1967</td><td>1,606</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Jun 2023</td><td>Clarawood</td><td><span>€740,994.00</span></td><td>????</td><td>1,312 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 Jun 2023</td><td>Rivermount</td><td><span>€650,920.00</span></td><td>1925</td><td>1,850 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 Jun, 2023</td><td>West End</td><td><span>€764,954.00</span></td><td>2010</td><td>1,833</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Jun 2023</td><td>West End</td><td><span>€1,083,484.00</span></td><td>2010</td><td>2,200 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Jun 2023</td><td>West End</td><td><span>€776,694.00</span></td><td>2007</td><td>1,451 sq ft</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Jun 2023</td><td>Clarawood</td><td><span>€650,506.00</span></td><td>1968</td><td>1,207</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 Jun 2023</td><td>Clarawood</td><td><span>€353,937.00</span></td><td>1959</td><td>1,033</td><td>Type: Duplex; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Jun 2023</td><td>Clarawood</td><td><span>€729,338.00</span></td><td>1970</td><td>1,678 sq ft</td><td>Style: Dormer; 3 Bedrooms; Type: Detached; 1 Bathroom</td></tr>
+		<tr><td>03 Jun 23</td><td>Clarawood</td><td><span>€651,217.00</span></td><td>1978</td><td>1,056</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>04 Jun, 2023</td><td>Rivermount</td><td><span>€514,099.00</span></td><td>1920</td><td>1,395 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>04 Jun, 2023</td><td>Rivermount</td><td><span>€474,885.00</span></td><td>1901</td><td>2,218</td><td>Style: 2-Storey; 4 Bedrooms; Type: Terraced; 2 Bathrooms</td></tr>
+		<tr><td>06 Jun 2023</td><td>Clarawood</td><td><span>€697,556.00</span></td><td>1961</td><td>1,341 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>07 Jun 2023</td><td>Redbridge</td><td><span>€914,465.00</span></td><td>2018</td><td>1,589</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Jun 2023</td><td>Redbridge</td><td><span>€1,197,241.00</span></td><td>2019</td><td>1,674</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>08 Jun 2023</td><td>Brookville</td><td><span>€599,207.00</span></td><td>2013</td><td>852</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>09 Jun 23</td><td>Clarawood</td><td><span>€834,217.00</span></td><td>1978</td><td>2,147 sq ft</td><td>Type: Detached; Style: Two-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Jun 2023</td><td>Brookville</td><td><span>€880,091.00</span></td><td>2006</td><td>1,494 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Jun 2023</td><td>Maple Ridge</td><td><span>€2,156,493.00</span></td><td>2018</td><td>2,315 sq ft</td><td>3 Bedrooms; Style: 2-Storey; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>11 Jun 23</td><td>Maple Ridge</td><td><span>€762,906.00</span></td><td>2015</td><td>1,558 sq ft</td><td>Type: End-of-Terrace; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>11 Jun 2023</td><td>Maple Ridge</td><td><span>€1,428,506.00</span></td><td>2018</td><td>1,733 sq ft</td><td>Style: 1-Storey; 3 Bedrooms; 2 Bathrooms; Type: Detached</td></tr>
+		<tr><td>12 Jun, 2023</td><td>Brookville</td><td><span>€1,044,966.00</span></td><td>2011</td><td>1,809 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Jun 2023</td><td>Brookville</td><td><span>€885,227.00</span></td><td>2009</td><td>1,486 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Jun 2023</td><td>Brookville</td><td><span>€1,012,031.00</span></td><td>2011</td><td>1,826 sq ft</td><td>Type: Detached; Style: 2-Storey; 2 Bathrooms; 3 Bedrooms</td></tr>
+		<tr><td>14 Jun 2023</td><td>Brookville</td><td><span>€523,869.00</span></td><td>1986</td><td>899 sq ft</td><td>3 Bedrooms; 1 Bathroom; Type: Detached; Style: 1-Storey</td></tr>
+		<tr><td>14 Jun 2023</td><td>Clarawood</td><td><span>€657,954.00</span></td><td>1967</td><td>1,509 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Jun, 2023</td><td>Clarawood</td><td><span>€651,207.00</span></td><td>1976</td><td>1,824 sqft</td><td>Type: Detached; 4 Bedrooms; 1 Bathroom; Style: 2-Storey</td></tr>
+		<tr><td>14 Jun 2023</td><td>Maple Ridge</td><td><span>€1,619,712.00</span></td><td>2014</td><td>2,247 sqft</td><td>Type: Detached; 2 Bathrooms; Style: 2-Storey; 4 Bedrooms</td></tr>
+		<tr><td>14 Jun 2023</td><td>Maple Ridge</td><td><span>€740,782.00</span></td><td>2005</td><td>1,395 sqft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>14 Jun 2023</td><td>Maple Ridge</td><td><span>€1,524,492.00</span></td><td>2018</td><td>2,173</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Jun 2023</td><td>Maple Ridge</td><td><span>€906,483.00</span></td><td>2012</td><td>1,595 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Jun 23</td><td>Brookville</td><td><span>€604,185.00</span></td><td>2004</td><td>1,084 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>16 Jun 2023</td><td>West End</td><td><span>€741,286.00</span></td><td>2015</td><td>1,504 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>17 Jun 2023</td><td>Redbridge</td><td><span>€939,916.00</span></td><td>2019</td><td>1,531</td><td>Type: Detached; Style: Two-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>18 Jun 2023</td><td>Clarawood</td><td><span>€420,776.00</span></td><td>1930</td><td>1,726 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>21 Jun 2023</td><td>Rivermount</td><td><span>€332,340.00</span></td><td>1920</td><td>1,043</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>21 Jun 2023</td><td>Rivermount</td><td><span>€575,857.00</span></td><td>1906</td><td>1,823 sq ft</td><td>Style: 2-Storey; Type: Terraced; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>24 Jun 2023</td><td>Clarawood</td><td><span>€604,163.00</span></td><td>1967</td><td>1,348 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 Jun 2023</td><td>West End</td><td><span>€934,320.00</span></td><td>2009</td><td>2,044 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>24 Jun 2023</td><td>West End</td><td><span>€993,637.00</span></td><td>2007</td><td>2,315 sq ft</td><td>Type: Detached; 4 Bedrooms; Style: 2-Storey; 2 Bathrooms</td></tr>
+		<tr><td>25 Jun 2023</td><td>Brookville</td><td><span>€760,055.00</span></td><td>2011</td><td>1,198 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Jun 2023</td><td>Maple Ridge</td><td><span>€1,808,589.00</span></td><td>2013</td><td>2,408</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Jun 2023</td><td>Maple Ridge</td><td><span>€830,590.00</span></td><td>2019</td><td>1,430 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 Jun 2023</td><td>Mile End</td><td><span>€479,540.00</span></td><td>1957</td><td>721 sqft</td><td>Type: Detached; Style: 1-Storey; 1 Bathroom; 2 Bedrooms</td></tr>
+		<tr><td>27 Jun, 2023</td><td>Mile End</td><td><span>€464,960.00</span></td><td>1961</td><td>1,460 sq ft</td><td>Type: Duplex; Style: 1-Storey; 4 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>27 Jun, 2023</td><td>West End</td><td><span>€774,454.00</span></td><td>2009</td><td>1,704 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 Jun 2023</td><td>West End</td><td><span>€625,378.00</span></td><td>1961</td><td>1,041 sqft</td><td>Type: Terraced; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Jun 2023</td><td>West End</td><td><span>€803,582.00</span></td><td>2010</td><td>1,810 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Jun 2023</td><td>Mile End</td><td><span>€579,012.00</span></td><td>1965</td><td>1,764 sqft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Jun 2023</td><td>Mile End</td><td><span>€208,750.00</span></td><td>1922</td><td>868 sq ft</td><td>Type: Bunaglow; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 Jun 2023</td><td>Mile End</td><td><span>€1,085,409.00</span></td><td>1942</td><td>2,038</td><td>3 Bathrooms; Type: Detached; Style: 2-Storey; 4 Bedrooms</td></tr>
+		<tr><td>01 Jul 2023</td><td>Clarawood</td><td><span>€509,682.00</span></td><td>1980</td><td>893</td><td>Style: 1-Storey; 1 Bathroom; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>01 Jul 2023</td><td>Maple Ridge</td><td><span>€1,012,115.00</span></td><td>2017</td><td>1,341</td><td>Type: End-of-Terrace; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>01 Jul 23</td><td>Maple Ridge</td><td><span>€1,272,157.00</span></td><td>2010</td><td>2,369 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Jul 23</td><td>Maple Ridge</td><td><span>€736,381.00</span></td><td>2013</td><td>1,655</td><td>Type: End-of-Terrace; Style: Two-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Jul 2023</td><td>Mile End</td><td><span>€414,901.00</span></td><td>1935</td><td>1,384 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Jul 2023</td><td>Maple Ridge</td><td><span>€1,542,529.00</span></td><td>2018</td><td>2,200 sq ft</td><td>Type: Detached; 3 Bedrooms; 2 Bathrooms; Style: 2-Storey</td></tr>
+		<tr><td>03 Jul 2023</td><td>Maple Ridge</td><td><span>€1,175,907.00</span></td><td>2018</td><td>1,533 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>03 Jul 2023</td><td>Maple Ridge</td><td><span>€1,582,820.00</span></td><td>2012</td><td>1,757 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>04 Jul 2023</td><td>Mile End</td><td><span>€319,190.00</span></td><td>1962</td><td>951 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Jul 2023</td><td>Clarawood</td><td><span>€509,681.00</span></td><td>1969</td><td>1,066</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Jul 2023</td><td>Maple Ridge</td><td><span>€1,138,807.00</span></td><td>2016</td><td>1,743 sq ft</td><td>Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>05 Jul 2023</td><td>Maple Ridge</td><td><span>€1,301,282.00</span></td><td>2008</td><td>1,622 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Jul 2023</td><td>Clarawood</td><td><span>€669,863.00</span></td><td>1973</td><td>1,417 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>06 Jul 2023</td><td>Clarawood</td><td><span>€613,126.00</span></td><td>1960</td><td>1,104 sq ft</td><td>3 Bedrooms; 1 Bathroom; Style: 1-Storey; Type: Detached</td></tr>
+		<tr><td>06 Jul 2023</td><td>Maple Ridge</td><td><span>€1,555,068.00</span></td><td>2016</td><td>1,741 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>06 Jul 2023</td><td>Maple Ridge</td><td><span>€1,310,315.00</span></td><td>2019</td><td>2,082 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Jul 23</td><td>Mile End</td><td><span>€858,397.00</span></td><td>2013</td><td>1,924 sq ft</td><td>Type: Detached; Style: Dormer; 4 Bedrooms; 3 Bathrooms</td></tr>
+		<tr><td>09 Jul, 2023</td><td>West End</td><td><span>€810,304.00</span></td><td>2014</td><td>1,431 sq ft</td><td>3 Bedrooms; 2 Bathrooms; Style: 2-Storey; Type: Detached</td></tr>
+		<tr><td>09 Jul 2023</td><td>West End</td><td><span>€761,257.00</span></td><td>2005</td><td>1,657 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>12 Jul 2023</td><td>Clarawood</td><td><span>€655,566.00</span></td><td>1979</td><td>1,041 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>12 Jul 2023</td><td>Clarawood</td><td><span>€673,456.00</span></td><td>1967</td><td>1,104 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>15 Jul 2023</td><td>Brookville</td><td><span>€564,528.00</span></td><td>1988</td><td>851</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>15 Jul, 2023</td><td>Maple Ridge</td><td><span>€1,142,576.00</span></td><td>2017</td><td>1,593 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Jul 2023</td><td>Maple Ridge</td><td><span>€1,428,663.00</span></td><td>2019</td><td>2,616 sqft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Jul 2023</td><td>Mile End</td><td><span>€671,867.00</span></td><td>1987</td><td>1,419 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>18 Jul 2023</td><td>Brookville</td><td><span>€822,637.00</span></td><td>2006</td><td>1,729 sq ft</td><td>Type: Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>18 Jul 2023</td><td>Brookville</td><td><span>€603,787.00</span></td><td>2011</td><td>849 sq ft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>18 Jul 2023</td><td>Clarawood</td><td><span>€443,436.00</span></td><td>1978</td><td>1,402</td><td>1 Bathroom; Type: Detached; Style: 1-Storey; 2 Bedrooms</td></tr>
+		<tr><td>19 Jul 2023</td><td>West End</td><td><span>€1,081,440.00</span></td><td>2010</td><td>2,067 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 Jul 2023</td><td>West End</td><td><span>€732,776.00</span></td><td>1997</td><td>1,474</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Jul 2023</td><td>West End</td><td><span>€736,068.00</span></td><td>2002</td><td>1,147 sq ft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>22 Jul, 2023</td><td>Clarawood</td><td><span>€398,215.00</span></td><td>1977</td><td>892</td><td>1 Bathroom; Type: Detached; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>25 Jul 2023</td><td>Brookville</td><td><span>€841,344.00</span></td><td>2012</td><td>1,671 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Jul 2023</td><td>Clarawood</td><td><span>€477,061.00</span></td><td>1975</td><td>908 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Jul 2023</td><td>Mile End</td><td><span>€398,506.00</span></td><td>1932</td><td>884 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Jul 2023</td><td>Clarawood</td><td><span>€1,593,631.00</span></td><td>1982</td><td>2,729</td><td>Type: Detached; Style: Dormer; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>27 Jul 2023</td><td>Clarawood</td><td><span>€641,884.00</span></td><td>1963</td><td>1,540</td><td>Type: Detached; Style: Dormer; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>29 Jul 2023</td><td>Clarawood</td><td><span>€546,511.00</span></td><td>1969</td><td>1,168</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>29 Jul 2023</td><td>Rivermount</td><td><span>€509,363.00</span></td><td>1962</td><td>1,948 sq ft</td><td>Type: Duplex; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>29 Jul 2023</td><td>Rivermount</td><td><span>€425,583.00</span></td><td>1924</td><td>1,256 sqft</td><td>Type: Detached; Style: 2-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>30 Jul 2023</td><td>Mile End</td><td><span>€475,582.00</span></td><td>1951</td><td>1,599 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Jul 23</td><td>Mile End</td><td><span>€436,730.00</span></td><td>1961</td><td>1,105</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Jul 23</td><td>Rivermount</td><td><span>€595,126.00</span></td><td>1930</td><td>1,501 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>31 Jul 2023</td><td>Rivermount</td><td><span>€489,887.00</span></td><td>1921</td><td>1,402 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>31 Jul, 2023</td><td>Rivermount</td><td><span>€539,729.00</span></td><td>1953</td><td>1,425 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 Aug 2023</td><td>Clarawood</td><td><span>€620,317.00</span></td><td>1980</td><td>981 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>02 Aug 2023</td><td>Mile End</td><td><span>€456,895.00</span></td><td>1951</td><td>669 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>03 Aug 2023</td><td>Brookville</td><td><span>€817,787.00</span></td><td>2014</td><td>1,532 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>03 Aug 2023</td><td>Brookville</td><td><span>€547,745.00</span></td><td>1976</td><td>804 sqft</td><td>Type: Detached; Style: Dormer; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>05 Aug 2023</td><td>Clarawood</td><td><span>€865,391.00</span></td><td>1979</td><td>2,654 sqft</td><td>Type: Duplex; Style: 2-Storey; 5 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>05 Aug 23</td><td>Clarawood</td><td><span>€459,917.00</span></td><td>1969</td><td>944 sq ft</td><td>Type: Detached; 1 Bathroom; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>06 Aug 2023</td><td>Brookville</td><td><span>€550,378.00</span></td><td>1982</td><td>880 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>08 Aug 2023</td><td>Rivermount</td><td><span>€557,956.00</span></td><td>1926</td><td>1,673 sqft</td><td>Style: 1-Storey; 3 Bedrooms; Type: Detached; 2 Bathrooms</td></tr>
+		<tr><td>09 Aug 2023</td><td>Mile End</td><td><span>€443,505.00</span></td><td>1930</td><td>1,200 sq ft</td><td>3 Bedrooms; Type: Detached; 1 Bathroom; Style: 1-Storey</td></tr>
+		<tr><td>09 Aug 2023</td><td>Mile End</td><td><span>€400,322.00</span></td><td>1970</td><td>1,640</td><td>Type: Duplex; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>09 Aug 2023</td><td>Mile End</td><td><span>€428,266.00</span></td><td>1958</td><td>969 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Aug 2023</td><td>Brookville</td><td><span>€507,253.00</span></td><td>1988</td><td>1,043</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 Aug 2023</td><td>Maple Ridge</td><td><span>€846,190.00</span></td><td>2015</td><td>1,305</td><td>2 Bathrooms; Type: End-of-Terrace; Style: 1-Storey; 1 Bedroom</td></tr>
+		<tr><td>19 Aug 2023</td><td>Maple Ridge</td><td><span>€745,704.00</span></td><td>2015</td><td>1,720 sq ft</td><td>Type: End-of-Terrace; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>19 Aug 2023</td><td>Maple Ridge</td><td><span>€895,608.00</span></td><td>2012</td><td>1,353 sq ft</td><td>2 Bedrooms; Style: 1-Storey; 3 Bathrooms</td></tr>
+		<tr><td>22 Aug 2023</td><td>Brookville</td><td><span>€1,020,013.00</span></td><td>2007</td><td>1,765</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>26 Aug 2023</td><td>Clarawood</td><td><span>€441,633.00</span></td><td>1972</td><td>880 sqft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Aug 2023</td><td>Clarawood</td><td><span>€664,649.00</span></td><td>1974</td><td>1,461 sq ft</td><td>Type: Detached; 3 Bedrooms; 1 Bathroom; Style: Dormer</td></tr>
+		<tr><td>04 Sep 2023</td><td>Brookville</td><td><span>€502,271.00</span></td><td>1982</td><td>909 sq ft</td><td>1 Bathroom; 2 Bedrooms; Type: Detached; Style: 1-Storey</td></tr>
+		<tr><td>05 Sep 23</td><td>Brookville</td><td><span>€1,347,497.00</span></td><td>2017</td><td>1,748 sqft</td><td>Type: Detached; 2 Bathrooms; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>05 Sep 2023</td><td>Clarawood</td><td><span>€548,895.00</span></td><td>1959</td><td>1,296 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>10 Sep 2023</td><td>Brookville</td><td><span>€827,075.00</span></td><td>2009</td><td>1,441</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Sep 2023</td><td>Brookville</td><td><span>€789,650.00</span></td><td>2008</td><td>1,677 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Sep 2023</td><td>Clarawood</td><td><span>€581,097.00</span></td><td>1960</td><td>1,645</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Sep 2023</td><td>Clarawood</td><td><span>€634,242.00</span></td><td>1978</td><td>1,380 sq ft</td><td>Style: Two-Storey; 1 Bathroom; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>14 Sep 2023</td><td>Rivermount</td><td><span>€510,794.00</span></td><td>1900</td><td>1,858 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>16 Sep 2023</td><td>Brookville</td><td><span>€629,998.00</span></td><td>1987</td><td>1,056 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>16 Sep, 2023</td><td>Rivermount</td><td><span>€558,145.00</span></td><td>1956</td><td>1,378</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>16 Sep 2023</td><td>Rivermount</td><td><span>€680,154.00</span></td><td>1894</td><td>2,674 sqft</td><td>Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>23 Sep 2023</td><td>Clarawood</td><td><span>€562,724.00</span></td><td>1984</td><td>1,785 sq ft</td><td>Type: Duplex; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Oct, 2023</td><td>Redbridge</td><td><span>€793,540.00</span></td><td>2014</td><td>1,254 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>02 Oct 2023</td><td>Redbridge</td><td><span>€1,156,250.00</span></td><td>2013</td><td>1,857 sq ft</td><td>Type: Detached; Style: Two-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>07 Oct, 2023</td><td>Clarawood</td><td><span>€707,836.00</span></td><td>1963</td><td>1,677 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>08 Oct 2023</td><td>Clarawood</td><td><span>€641,364.00</span></td><td>1964</td><td>1,282 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>09 Oct 2023</td><td>Clarawood</td><td><span>€522,777.00</span></td><td>1969</td><td>872 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>09 Oct 2023</td><td>Clarawood</td><td><span>€561,277.00</span></td><td>1970</td><td>1,237</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Oct 2023</td><td>Maple Ridge</td><td><span>€1,281,918.00</span></td><td>2013</td><td>1,633 sq ft</td><td>3 Bedrooms; Type: Detached; Style: 1-Storey; 2 Bathrooms</td></tr>
+		<tr><td>14 Oct 2023</td><td>Maple Ridge</td><td><span>€1,286,645.00</span></td><td>2007</td><td>1,514 sqft</td><td>Type: Semi-Detached; Style: 1-Storey; 1 Bedroom; 1 Bathroom</td></tr>
+		<tr><td>15 Oct 2023</td><td>Mile End</td><td><span>€434,567.00</span></td><td>1950</td><td>1,518</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>15 Oct 2023</td><td>Redbridge</td><td><span>€1,067,149.00</span></td><td>2016</td><td>1,527 sq ft</td><td>Type: Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Oct 2023</td><td>Redbridge</td><td><span>€936,618.00</span></td><td>2011</td><td>1,634 sq ft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Oct, 2023</td><td>Redbridge</td><td><span>€1,454,320.00</span></td><td>2014</td><td>1,648 sq ft</td><td>2 Bathrooms; Style: 1-Storey; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>15 Oct 2023</td><td>Redbridge</td><td><span>€776,396.00</span></td><td>2016</td><td>1,660</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Oct 23</td><td>West End</td><td><span>€1,762,892.00</span></td><td>2016</td><td>1,754 sqft</td><td>Type: Detached; Style: One-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>24 Oct 2023</td><td>Brookville</td><td><span>€929,402.00</span></td><td>2010</td><td>1,615 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>25 Oct 2023</td><td>Brookville</td><td><span>€597,070.00</span></td><td>1987</td><td>1,256 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>27 Oct 2023</td><td>Rivermount</td><td><span>€420,812.00</span></td><td>1930</td><td>1,368 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Oct 2023</td><td>Mile End</td><td><span>€421,221.00</span></td><td>1949</td><td>1,273</td><td>1 Bathroom; Type: Detached; Style: 1-Storey; 2 Bedrooms</td></tr>
+		<tr><td>28 Oct 2023</td><td>Mile End</td><td><span>€561,824.00</span></td><td>1960</td><td>1,436 sq ft</td><td>Type: Detached; Style: 1-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>30 Oct 2023</td><td>Clarawood</td><td><span>€890,489.00</span></td><td>1975</td><td>1,997</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>01 Nov 2023</td><td>Redbridge</td><td><span>€1,176,322.00</span></td><td>2013</td><td>2,086 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>01 Nov 2023</td><td>Redbridge</td><td><span>€784,575.00</span></td><td>2016</td><td>1,335</td><td>2 Bathrooms; Type: Detached; Style: 1-Storey; 3 Bedrooms</td></tr>
+		<tr><td>01 Nov 2023</td><td>Redbridge</td><td><span>€744,002.00</span></td><td>2007</td><td>1,490 sq ft</td><td>Type: End-of-Terrace; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>01 Nov 2023</td><td>Redbridge</td><td><span>€1,413,378.00</span></td><td>2008</td><td>1,913 sq ft</td><td>3 Bathrooms; Style: One-Storey; 3 Bedrooms; Type: Detached</td></tr>
+		<tr><td>03 Nov 2023</td><td>Clarawood</td><td><span>€502,346.00</span></td><td>1963</td><td>1,349 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>07 Nov 2023</td><td>Clarawood</td><td><span>€646,482.00</span></td><td>1976</td><td>1,178 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>10 Nov 2023</td><td>Rivermount</td><td><span>€425,290.00</span></td><td>1908</td><td>2,150 sq ft</td><td>2 Bedrooms; Style: 2-Storey; Type: Detached; 2 Bathrooms</td></tr>
+		<tr><td>14 Nov 2023</td><td>Brookville</td><td><span>€636,968.00</span></td><td>2006</td><td>1,034</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>14 Nov 2023</td><td>Maple Ridge</td><td><span>€1,490,755.00</span></td><td>2016</td><td>1,681 sq ft</td><td>Type: Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Nov 2023</td><td>Maple Ridge</td><td><span>€1,243,558.00</span></td><td>2011</td><td>1,966</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Nov 2023</td><td>Rivermount</td><td><span>€367,468.00</span></td><td>1964</td><td>1,367 sq ft</td><td>Type: Terraced; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>15 Nov 23</td><td>Rivermount</td><td><span>€458,818.00</span></td><td>1931</td><td>1,244</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>17 Nov 23</td><td>Mile End</td><td><span>€523,394.00</span></td><td>1966</td><td>1,706 sq ft</td><td>Style: 1-Storey; 1 Bathroom; Type: Detached; 3 Bedrooms</td></tr>
+		<tr><td>18 Nov 2023</td><td>Rivermount</td><td><span>€712,424.00</span></td><td>1892</td><td>1,740</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>26 Nov, 2023</td><td>Clarawood</td><td><span>€491,254.00</span></td><td>1980</td><td>893 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>28 Nov 2023</td><td>Brookville</td><td><span>€1,168,623.00</span></td><td>2011</td><td>1,894 sqft</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>28 Nov 2023</td><td>Brookville</td><td><span>€504,791.00</span></td><td>1985</td><td>980 sqft</td><td>Type: Detached; 3 Bedrooms; 1 Bathroom; Style: 1-Storey</td></tr>
+		<tr><td>28 Nov 2023</td><td>Brookville</td><td><span>€590,950.00</span></td><td>1981</td><td>814 sq ft</td><td>3 Bedrooms; Type: Detached; 1 Bathroom; Style: 1-Storey</td></tr>
+		<tr><td>30 Nov 2023</td><td>Clarawood</td><td><span>€466,172.00</span></td><td>1965</td><td>1,039</td><td>1 Bathroom; Style: 1-Storey; 2 Bedrooms; Type: Detached</td></tr>
+		<tr><td>03 Dec, 2023</td><td>West End</td><td><span>€866,032.00</span></td><td>2012</td><td>2,265 sq ft</td><td>4 Bedrooms; Type: Detached; Style: Two-Storey; 2 Bathrooms</td></tr>
+		<tr><td>09 Dec 2023</td><td>Rivermount</td><td><span>€431,958.00</span></td><td>1902</td><td>2,387 sq ft</td><td>Type: Detached; 2 Bathrooms; Style: 2-Storey; 4 Bedrooms</td></tr>
+		<tr><td>10 Dec 2023</td><td>West End</td><td><span>€793,132.00</span></td><td>2008</td><td>1,702</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Dec 2023</td><td>West End</td><td><span>€706,754.00</span></td><td>1965</td><td>2,324 sq ft</td><td>Type: Detached; Style: 2-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>10 Dec 2023</td><td>West End</td><td><span>€977,053.00</span></td><td>2019</td><td>1,903 sq ft</td><td>Type: Detached; Style: 2-Storey; 4 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>14 Dec 2023</td><td>Rivermount</td><td><span>€360,184.00</span></td><td>1948</td><td>878 sq ft</td><td>Type: Detached; Style: One-Storey; 2 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>19 Dec 2023</td><td>West End</td><td><span>€760,062.00</span></td><td>2002</td><td>1,576 sq ft</td><td>2 Bathrooms; 3 Bedrooms; Style: 2-Storey; Type: Detached</td></tr>
+		<tr><td>19 Dec 2023</td><td>West End</td><td><span>€1,005,014.00</span></td><td>2009</td><td>1,893</td><td>Type: Detached; Style: 2-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>20 Dec 2023</td><td>Rivermount</td><td><span>€466,443.00</span></td><td>1936</td><td>1,240 sqft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 1 Bathroom</td></tr>
+		<tr><td>24 Dec 2023</td><td>Clarawood</td><td><span>€662,985.00</span></td><td>1970</td><td>1,499 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>24 Dec 2023</td><td>Clarawood</td><td><span>€639,980.00</span></td><td>1969</td><td>1,525</td><td>Type: Detached; 1 Bathroom; Style: 1-Storey; 2 Bedrooms</td></tr>
+		<tr><td>31 Dec 2023</td><td>Maple Ridge</td><td><span>€1,131,122.00</span></td><td>2016</td><td>1,339</td><td>Type: Semi-Detached; Style: 1-Storey; 2 Bedrooms; 2 Bathrooms</td></tr>
+		<tr><td>31 Dec, 2023</td><td>Maple Ridge</td><td><span>€1,160,364.00</span></td><td>2018</td><td>1,713 sq ft</td><td>Type: Detached; Style: 1-Storey; 3 Bedrooms; 2 Bathrooms</td></tr>
+              </tbody>
+            </table>
+
+            </div>
+        </div>
+        <div class="footer">
+            Content on this site is posted for teaching purposes only. 
+        </div>
+    </div>
+
+
+  
+
+</body></html>
